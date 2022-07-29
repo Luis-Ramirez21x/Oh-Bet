@@ -1,12 +1,37 @@
 const {User, Bet} = require('../models');
+const { signToken } = require('../utils/auth');
 
 
 module.exports = {
 
-    createUser(req,res) {
-        User.create(req.body)
-            .then((user) => res.json(user))
-            .catch((err) => res.status(500).json(err));
+    async createUser(req,res) {
+        try{
+            const user = await User.create(req.body)
+            const token = signToken(user);
+            res.status(200).json({user, token});
+        } 
+        catch(err){
+            res.status(400).json(err);
+        }
+    },
+    async login(req,res){
+        try{
+            const user = await User.findOne({username: req.body.username})
+            if(!user){
+                res.status(404).send('No account found with this username!');
+            }
+
+            const correctPW = await user.isCorrectPassword(req.body.password)
+            if(!correctPW){
+                res.status(403).send('Incorrect credentials');
+            }
+
+            const token = signToken(user);
+            res.status(200).json({user, token});
+        } 
+        catch(err){
+            res.status(400).json(err);
+        }
     }
 
 }

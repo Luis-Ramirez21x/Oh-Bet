@@ -1,0 +1,13 @@
+.myRecord{
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    justify-content: space-around;
+}
+
+.betOptions{
+    display: flex;
+    flex-direction: row;
+    background-color: beige;
+    justify-content: space-around;
+}

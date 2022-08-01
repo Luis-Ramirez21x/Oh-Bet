@@ -1,10 +1,23 @@
 import './home.css';
+import Quote from '../../components/homeFeatures/quote'
+import MyRecord from '../../components/homeFeatures/MyRecord';
+import ActiveBets from '../../components/homeFeatures/ActiveBets';
+import { Container, Row} from "react-bootstrap";
 
 function Home(){
 
     return(
         <>
-            <h2>Home</h2>
+            <Row>
+                <Container>
+                    <Quote/>
+                    <MyRecord/>
+                    
+                </Container>
+                <Container>
+                    <ActiveBets/>
+                </Container>
+            </Row>
         </>
     )
 

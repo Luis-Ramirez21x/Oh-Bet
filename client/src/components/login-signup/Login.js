@@ -4,7 +4,7 @@ import Auth from '../../util/auth';
 import axios from 'axios';
 
 function Login(){
-
+    
     //state
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
     const [validated] = useState(false);
@@ -27,17 +27,13 @@ function Login(){
         }
    
         try {
-            /*
-          const { data } = await loginUser({
-            variables: { ...userFormData }
-          })
-          */
+
         let {data} = await axios.post('http://localhost:3001/api/users/login',
         {
             "username": userFormData.username,
             "password": userFormData.password
         })
-            console.log(data);
+            
             Auth.login(data.token);
         } catch (err) {
           console.error(err);
@@ -82,6 +78,7 @@ function Login(){
                 />
                 <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                 </Form.Group>
+                <h5>Not a member? Register <a href='/register'>here!</a></h5>
                 <Button
                 className='login-submit'
                 disabled={!(userFormData.username && userFormData.password)}

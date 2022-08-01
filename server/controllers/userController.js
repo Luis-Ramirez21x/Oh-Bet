@@ -5,8 +5,15 @@ const { signToken } = require('../utils/auth');
 module.exports = {
 
     async createUser(req,res) {
+        let {name, admin, username, password} = req.body
+
         try{
-            const user = await User.create(req.body)
+            const user = await User.create({
+                "name":name,
+                "admin": false,
+                "username": username,
+                "password": password
+            })
             const token = signToken(user);
             res.status(200).json({user, token});
         } 

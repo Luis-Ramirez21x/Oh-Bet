@@ -17,7 +17,7 @@ function Navv(){
         {[false].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">Oh Bet</Navbar.Brand>
+            <Navbar.Brand href="/">Oh Bet</Navbar.Brand>
             
             <a href={token? '/': '/login'}>
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fillRule="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">

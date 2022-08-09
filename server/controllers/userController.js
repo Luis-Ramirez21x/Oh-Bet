@@ -45,5 +45,10 @@ module.exports = {
             .then((users) => res.json(users))
             .catch((err) => res.status(500).json(err));
     },
+    async getSingleUser(req,res){
+        await User.findById({_id: req.body.userId}) 
+            .then((user) => res.json(user))
+            .catch((err) => res.status(500).json(err));
+    }
 
 }

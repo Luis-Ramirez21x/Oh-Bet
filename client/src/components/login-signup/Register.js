@@ -32,7 +32,7 @@ const handleInputChange = (event) => {
             "password": userFormData.password
         })
  
-        console.log(data);
+        
         Auth.login(data.token);
    } catch (err) {
      console.error(err);

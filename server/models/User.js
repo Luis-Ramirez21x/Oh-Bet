@@ -22,6 +22,12 @@ const userSchema = new Schema({
       required: true,
       
     },
+    betsPending:[
+      {
+        type:Schema.Types.ObjectId,
+        ref:"Bet"
+      }
+    ],
     bets:[
         {
         type:Schema.Types.ObjectId,

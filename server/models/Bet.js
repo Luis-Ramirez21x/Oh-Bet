@@ -1,14 +1,18 @@
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
-    user1: {
+    sender: {
         type: Schema.Types.ObjectId,
         ref:"User",
       
     },
-    user2:{
+    receiver:{
         type: Schema.Types.ObjectId,
         ref:"User",
+    },
+    approved:{
+        type: Boolean,
+        required: true
     },
     winner:{
         type: Schema.Types.ObjectId,

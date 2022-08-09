@@ -3,17 +3,33 @@ const {User, Bet} = require('../models');
 module.exports = {
 
     async createBet(req,res) {
-        await Bet.create(req.body)
-            .then((bet) => res.json(bet))
-            .catch((err) => res.status(500).json(err));
+        const {sender, receiver} = req.body; 
+        
+        try{
+             const newBet = await Bet.create(req.body);
+
+             await User.findByIdAndUpdate(
+                {_id:sender},
+                {$addToSet:{ betsPending: newBet._id}}
+             );
+             await User.findByIdAndUpdate(
+                {_id:receiver},
+                {$addToSet:{ betsPending: newBet._id}}
+             );
+
+             res.status(200).json(newBet);
+
+        }catch(err){
+            res.status(400).json(err);
+        }
     },
     async editBet(req,res){
-        const { betId ,user1, user2, winner, condition, reward, paidOut} = req.body;
+        const { betId ,sender, receiver, winner, condition, reward, paidOut} = req.body;
         await Bet.findByIdAndUpdate(
             {_id: betId},
             {
-                user1: user1,
-                user2: user2,
+                sender: sender,
+                receiver: receiver,
                 winner: winner,
                 condition: condition,
                 reward: reward,

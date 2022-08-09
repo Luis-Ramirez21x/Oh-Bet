@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { createUser, login } =require('../../controllers/userController');
+const { createUser, login, getAllUsers } =require('../../controllers/userController');
 
 //  /api/users
-router.route('/').post(createUser);
+router.route('/').get(getAllUsers).post(createUser);
 router.route('/login').post(login);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import Auth from '../../util/auth';
+
 import auth from '../../util/auth';
 
 

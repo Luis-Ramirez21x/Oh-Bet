@@ -7,6 +7,7 @@ import Login from './components/login-signup/Login';
 import Register from './components/login-signup/Register';
 import CreateBet from './pages/createBet/createBet';
 import SingleBet from './pages/singleBet/singleBet';
+import AllBets from './pages/allBets/allBets';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
             <Route path ='/login'  element={<Login/>}/>
             <Route path ='/register' element={<Register/>} />          
             <Route path='/place-bet' element={<CreateBet/>} />
-            <Route path='bet-details/:betId' element={<SingleBet/>} />
+            <Route path='/bet-details/:betId' element={<SingleBet/>} />
+            <Route path='/all-bets' element={<AllBets/>} />
         </Routes>
       </BrowserRouter>
     </>

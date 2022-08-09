@@ -3,11 +3,14 @@ import { Card } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import BetCardHeader from "./betCardheader";
+import Auth from '../../util/auth';
 import './bet.css'
 
 
 
+
 function BetDetails({betData}){
+    let loggedIn = Auth.loggedIn();
     let {sender, receiver, approved, condition, reward, winner, paidOut } = betData;
 
     let [usersData, setUsersData] = useState({sender:null, receiver:null});
@@ -46,6 +49,16 @@ function BetDetails({betData}){
 
     return(
         <>  
+            <div className="betLinks">
+            {loggedIn? (
+                <>
+                
+                <a href='/my-bets'><h3>My bets</h3></a>
+                <a href='/all-bets'><h3>All Bets</h3></a>
+                </>)
+            : <a href='/all-bets'><h3>All Bets</h3></a>}
+            </div>
+            
             <div className="betCard">
             <h1>Bet Details</h1>
             <BetCardHeader usersData={usersData}/>

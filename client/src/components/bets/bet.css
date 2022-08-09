@@ -16,3 +16,25 @@
     margin:0px;
     padding:0px !important;
 }
+
+.betLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.accordion{
+    margin: 10px 20px 10px 20px
+    
+}
+
+.accordion-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.allBets{
+    text-align: center;
+}

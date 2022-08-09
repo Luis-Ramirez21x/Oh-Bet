@@ -48,6 +48,8 @@ module.exports = {
     },
     async getAllBets(req,res){
         Bet.find()
+        .populate('sender')
+        .populate('receiver')
             .then((bets) => res.json(bets))
             .catch((err) => res.status(500).json(err));
     },

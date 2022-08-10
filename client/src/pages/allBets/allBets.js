@@ -1,4 +1,4 @@
-import BetDiv from "../../components/bets/betDiv";
+import BetAccordion from "../../components/bets/betAccordion";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,15 +7,19 @@ import axios from "axios";
 
 
 function AllBets(){
-    const [allBets, setAllBets] = useState([]);
+    const [betsData, setData] = useState({tossUp:null, active:null, completed:null})
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-
-        axios.get('http://localhost:3001/api/bets')
-            .then(bets => setAllBets(bets.data))
-            .catch(err => console.log(err))
-            .finally(setLoading(false));
+        const fetchData = async () =>{
+            const tossUpRes = await axios.get('http://localhost:3001/api/bets/tossUpBets')
+            const activeRes = await axios.get('http://localhost:3001/api/bets/activeBets');
+            const completedRes = await axios.get('http://localhost:3001/api/bets/completedBets')
+            setData({tossUp: tossUpRes.data, active: activeRes.data, completed: completedRes.data});
+            setLoading(false);
+        }
+        
+        fetchData();    
 
     },[])
 
@@ -23,21 +27,12 @@ function AllBets(){
         return(<h2>Loading...</h2>)
     }
 
-    
+        console.log(betsData)
     return(
         <>
-            <div className="tossUpBets">
-                {}
-            </div>
-
-            <div className="allBets">
-                <h1>All bets</h1>
-                {allBets.map(((bet, index)=> {
-
-                    return <BetDiv key={bet._id} index={index} bet={bet}/>
-                }))}
-            </div>
-            
+            <BetAccordion title={'Toss Up Bets'} bets={betsData.tossUp}/>
+            <BetAccordion title={'Active Bets'} bets={betsData.active}/>
+            <BetAccordion title={'Completed Bets'} bets={betsData.completed}/>
         </>
        
     )

@@ -13,25 +13,13 @@ function BetDetails({betData}){
     let loggedIn = Auth.loggedIn();
     let {sender, receiver, approved, condition, reward, winner, paidOut } = betData;
 
-    let [usersData, setUsersData] = useState({sender:null, receiver:null});
-    const [loading, setLoading] = useState(true);
+    //let [usersData, setUsersData] = useState({sender:null, receiver:null});
+    const [loading, setLoading] = useState(false);
 
+    console.log(betData)
     useEffect(() =>{
-
-        const getData = async () =>{
-            const user1 = await axios.post(`http://localhost:3001/api/users/singleUser`,
-            {
-                "userId" : sender
-            });
-            const user2 = await axios.post(`http://localhost:3001/api/users/singleUser`,
-            {
-                "userId" : receiver
-            });
-            setUsersData({sender: user1.data.username, receiver:user2.data.username});
-        }
-
-        getData();
-        setLoading(false);
+        //logic for updating bets future 
+        
     },[])
 
     function getStatus(){
@@ -61,7 +49,7 @@ function BetDetails({betData}){
             
             <div className="betCard">
             <h1>Bet Details</h1>
-            <BetCardHeader usersData={usersData}/>
+            <BetCardHeader betData={betData}/>
             <div className="details">
                 <div>
                     <h3>Terms</h3>

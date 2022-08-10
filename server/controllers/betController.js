@@ -12,11 +12,12 @@ module.exports = {
                 {_id:sender},
                 {$addToSet:{ betsPending: newBet._id}}
              );
+             if(receiver){
              await User.findByIdAndUpdate(
                 {_id:receiver},
                 {$addToSet:{ betsPending: newBet._id}}
              );
-
+             }
              res.status(200).json(newBet);
 
         }catch(err){
@@ -48,13 +49,35 @@ module.exports = {
     },
     async getAllBets(req,res){
         Bet.find()
-        .populate('sender')
-        .populate('receiver')
+            .populate('sender')
+            .populate('receiver')
             .then((bets) => res.json(bets))
             .catch((err) => res.status(500).json(err));
     },
     async getSingleBet(req,res){
         await Bet.findById({_id: req.body.betId}) 
+            .populate('sender')
+            .populate('receiver')
+            .then((bet) => res.json(bet))
+            .catch((err) => res.status(500).json(err));
+    },
+    async getTossUpBets(req,res){
+        await Bet.find({receiver:null})
+            .populate('sender')
+            .then((bet) => res.json(bet))
+            .catch((err) => res.status(500).json(err));
+    },
+    async getActiveBets(req,res){
+        await Bet.find({receiver : {$ne:null}, winner: null})
+            .populate('sender')
+            .populate('receiver')
+            .then((bet) => res.json(bet))
+            .catch((err) => res.status(500).json(err));
+    },
+    async getCompletedBets(req,res){
+        await Bet.find({winner: {$ne:null}})
+            .populate('sender')
+            .populate('receiver')
             .then((bet) => res.json(bet))
             .catch((err) => res.status(500).json(err));
     }

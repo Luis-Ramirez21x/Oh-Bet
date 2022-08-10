@@ -26,6 +26,10 @@ function AllBets(){
     
     return(
         <>
+            <div className="tossUpBets">
+                {}
+            </div>
+
             <div className="allBets">
                 <h1>All bets</h1>
                 {allBets.map(((bet, index)=> {

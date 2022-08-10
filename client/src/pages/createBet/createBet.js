@@ -38,9 +38,14 @@ function CreateBet(){
           event.stopPropagation();
         }
 
-        //get receiver _id
-        let receiver = allUsers.find(element => element.username === userFormData.receiver)
-     
+        let receiver ={}
+        if(userFormData.receiver !== 'Make Bet Available To Anyone'){
+             receiver = allUsers.find(element => element.username === userFormData.receiver)
+        }else {
+            receiver = {_id:null};
+        }
+        
+        console.log(receiver)
         try {
 
             let {data} = await axios.post('http://localhost:3001/api/bets',{
@@ -89,8 +94,8 @@ function CreateBet(){
             onChange={handleInputChange}
             value={userFormData.receiver}
             required
-            >
-                <option>Make Bet Available To Anyone</option>
+            >   <option>Choose a recipient...</option>
+                <option key='anyone'>Make Bet Available To Anyone</option>
                 {allUsers.map((user) =>{
                     return(
                         <option key={user.username}>{user.username}</option>

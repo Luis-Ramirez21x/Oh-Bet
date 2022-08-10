@@ -4,7 +4,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import './bet.css'
 
 function BetDiv({bet, index}){
-    console.log(bet)
+    
 
     return(
     <Accordion >
@@ -14,7 +14,7 @@ function BetDiv({bet, index}){
                 <h5>{bet.reward}</h5>
                 <p>{bet.sender.username}</p>
                 <p>vs.</p>
-                <p>{bet.receiver.username}</p>
+                <p>{bet?.receiver?.username ? bet?.receiver?.username : 'TBA'}</p>
             </div>
         </Accordion.Header>
         <Accordion.Body>

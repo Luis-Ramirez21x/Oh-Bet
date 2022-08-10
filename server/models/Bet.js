@@ -9,6 +9,8 @@ const userSchema = new Schema({
     receiver:{
         type: Schema.Types.ObjectId,
         ref:"User",
+        required: false,
+        default:null
     },
     approved:{
         type: Boolean,

@@ -96,20 +96,30 @@ module.exports = {
                     requests.push(betsPending[i]);
                 }
             }
-
             res.status(200).json(requests);
         }catch(err){
             res.status(400).json(err);
-        }
+        }        
+    },
+    async getUserActiveBets(req,res){' '
+        try{
+            let userId = req.body.userId;
+            const bets = await Bet.find({receiver : {$ne:null}, winner: null, approved:true})
+                    .populate('sender')
+                    .populate('receiver')
+            let activeBets =[];
 
-        
-
-
-        
-        
-        
-
+            for(i=0; i< bets.length;i++){
+                if((JSON.stringify(bets[i].sender._id) === JSON.stringify(req.body.userId)) ||(JSON.stringify(bets[i].receiver._id) === JSON.stringify(req.body.userId) )){
+                    activeBets.push(bets[i]);
+                }
+            }
             
+            res.status(200).json(bets);
+
+        }catch(err){
+            res.status(400).json(err);
+        }
     }   
 
 }

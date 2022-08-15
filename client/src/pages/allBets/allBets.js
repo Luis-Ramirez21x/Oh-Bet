@@ -27,7 +27,7 @@ function AllBets(){
         return(<h2>Loading...</h2>)
     }
 
-        console.log(betsData)
+        
     return(
         <>
             <BetAccordion title={'Toss Up Bets'} bets={betsData.tossUp}/>

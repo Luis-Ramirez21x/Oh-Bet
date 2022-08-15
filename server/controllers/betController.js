@@ -1,4 +1,5 @@
 const {User, Bet} = require('../models');
+const { populate } = require('../models/User');
 
 module.exports = {
 
@@ -80,6 +81,35 @@ module.exports = {
             .populate('receiver')
             .then((bet) => res.json(bet))
             .catch((err) => res.status(500).json(err));
-    }
+    }, 
+    async getUserBetRequests(req,res){
+        try{
+            const user =await User.findById({_id: req.body.userId}).populate({
+                path: 'betsPending',
+                populate:'sender'
+            });
+            
+            let requests = []
+            let betsPending = user.betsPending;
+            for(i=0; i<betsPending.length; i++){
+                if(JSON.stringify(betsPending[i].sender._id) !== JSON.stringify(user._id)){
+                    requests.push(betsPending[i]);
+                }
+            }
+
+            res.status(200).json(requests);
+        }catch(err){
+            res.status(400).json(err);
+        }
+
+        
+
+
+        
+        
+        
+
+            
+    }   
 
 }

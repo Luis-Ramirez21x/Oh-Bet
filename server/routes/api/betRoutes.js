@@ -7,7 +7,8 @@ const {
     getAllBets, 
     getTossUpBets,
     getActiveBets,
-    getCompletedBets} = require('../../controllers/betController');
+    getCompletedBets,
+    getUserBetRequests} = require('../../controllers/betController');
 
 // /api/bets
 router.route('/').get(getAllBets).post(createBet).put(editBet).delete(deleteBet);
@@ -16,5 +17,6 @@ router.route('/singleBet').post(getSingleBet);
 router.route('/tossUpBets').get(getTossUpBets);
 router.route('/activeBets').get(getActiveBets);
 router.route('/completedBets').get(getCompletedBets);
+router.route('/pendingBets').post(getUserBetRequests);
 
 module.exports = router;

@@ -5,22 +5,22 @@ import axios from "axios";
 import BetCardHeader from "./betCardheader";
 import Auth from '../../util/auth';
 import './bet.css'
+import BetCRUD from "./betCRUD";
 
 
 
 
 function BetDetails({betData}){
     let loggedIn = Auth.loggedIn();
+    let userId = Auth.getProfile().data._id;
     let {sender, receiver, approved, condition, reward, winner, paidOut } = betData;
+    
 
     //let [usersData, setUsersData] = useState({sender:null, receiver:null});
     const [loading, setLoading] = useState(false);
 
-    console.log(betData)
-    useEffect(() =>{
-        //logic for updating bets future 
-        
-    },[])
+    
+    
 
     function getStatus(){
         if(approved && !winner){
@@ -34,7 +34,7 @@ function BetDetails({betData}){
     if(loading){
         return(<h2>Loading...</h2>)
     }
-
+    
     return(
         <>  
             <div className="betLinks">
@@ -62,8 +62,12 @@ function BetDetails({betData}){
                 <div>
                     <h6>{getStatus()}</h6>
                 </div>
+                
             </div>
+  
             </div>
+
+            {(!betData.approved && betData.sender._id !== userId) ? (<BetCRUD betData={betData} />) : null}
         </>
     )
 }

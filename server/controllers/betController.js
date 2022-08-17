@@ -26,10 +26,10 @@ module.exports = {
         }
     },
     async editBet(req,res){
-        const { betId ,sender, receiver, winner, condition, reward, paidOut} = req.body;
+        const { _id ,sender, receiver, winner, condition, reward, paidOut,approved} = req.body;
         await Bet.findByIdAndUpdate(
-            {_id: betId},
-            {
+            {_id: _id},
+            {   approved:approved,
                 sender: sender,
                 receiver: receiver,
                 winner: winner,
@@ -92,7 +92,7 @@ module.exports = {
             let requests = []
             let betsPending = user.betsPending;
             for(i=0; i<betsPending.length; i++){
-                if(JSON.stringify(betsPending[i].sender._id) !== JSON.stringify(user._id)){
+                if((JSON.stringify(betsPending[i].sender._id) !== JSON.stringify(user._id)) && betsPending[i].approved === false){
                     requests.push(betsPending[i]);
                 }
             }

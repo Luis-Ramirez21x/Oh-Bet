@@ -16,12 +16,12 @@ function App() {
       <Navv/>
       <BrowserRouter>
         <Routes>
-            <Route path = '/' element={<Home/>}/>
+            <Route path = '/home' element={<Home/>}/>
             <Route path ='/login'  element={<Login/>}/>
             <Route path ='/register' element={<Register/>} />          
             <Route path='/place-bet' element={<CreateBet/>} />
             <Route path='/bet-details/:betId' element={<SingleBet/>} />
-            <Route path='/all-bets' element={<AllBets/>} />
+            <Route path='/' element={<AllBets/>} />
         </Routes>
       </BrowserRouter>
     </>

@@ -45,7 +45,7 @@ function CreateBet(){
             receiver = {_id:null};
         }
         
-        console.log(receiver)
+        
         try {
 
             let {data} = await axios.post('http://localhost:3001/api/bets',{

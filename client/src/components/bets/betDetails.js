@@ -23,10 +23,13 @@ function BetDetails({betData}){
     
 
     function getStatus(){
-        if(approved && !winner){
-            return 'Status: Bet Is Live'
+        if(approved === null){
+            return "Bet Was Rejected";
+        }
+        else if(approved && !winner){
+            return 'Status: Bet Is Live';
         }else if(!approved){
-            return 'Status: Pending Apporval...'
+            return 'Status: Pending Apporval...';
         } else return `Winner: ${winner}`
     }
 
@@ -67,7 +70,7 @@ function BetDetails({betData}){
   
             </div>
 
-            {(!betData.approved && betData.sender._id !== userId) ? (<BetCRUD betData={betData} />) : null}
+            {(!betData.approved && betData.sender._id !== userId && betData.approved != null) ? (<BetCRUD betData={betData} />) : null}
         </>
     )
 }

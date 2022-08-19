@@ -1,6 +1,51 @@
-
+import axios from "axios";
 
 function BetReqDiv({betData}){
+
+    const deleteBet = async (event) =>{
+        event.preventDefault();
+          event.stopPropagation();
+          
+        try{
+            
+            let data = await axios.post('http://localhost:3001/api/bets/deleteBet',{
+                "betId": betData._id
+
+        })
+        
+    
+        window.location.reload();
+    }catch(err){
+            console.log(err);
+        }
+    }
+
+
+    
+        
+    if(betData.approved === null){
+        return(
+            <div className="betRequest">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fillRule="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                    <p><strong>{betData.receiver.username}</strong> Rejected your offer</p>
+                </div>
+                <div>
+                    <p>{betData.condition} </p>
+                </div>
+                <button type="button" className="btn btn-danger" onClick={deleteBet}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-backspace-reverse" viewBox="0 0 16 16">
+                    <path d="M9.854 5.146a.5.5 0 0 1 0 .708L7.707 8l2.147 2.146a.5.5 0 0 1-.708.708L7 8.707l-2.146 2.147a.5.5 0 0 1-.708-.708L6.293 8 4.146 5.854a.5.5 0 1 1 .708-.708L7 7.293l2.146-2.147a.5.5 0 0 1 .708 0z"></path>
+                    <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7.08a2 2 0 0 0 1.519-.698l4.843-5.651a1 1 0 0 0 0-1.302L10.6 1.7A2 2 0 0 0 9.08 1H2zm7.08 1a1 1 0 0 1 .76.35L14.682 8l-4.844 5.65a1 1 0 0 1-.759.35H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h7.08z"></path>
+                    </svg>
+              </button>
+                
+            </div>
+        )
+    }
 
     return(
         <div className="betRequest">
@@ -22,6 +67,7 @@ function BetReqDiv({betData}){
             
         </div>
     )
+    
 
 }
 

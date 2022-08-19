@@ -103,7 +103,7 @@ module.exports = {
     },
     async getUserActiveBets(req,res){' '
         try{
-            let userId = req.body.userId;
+            
             const bets = await Bet.find({receiver : {$ne:null}, winner: null, approved:true})
                     .populate('sender')
                     .populate('receiver')
@@ -120,6 +120,15 @@ module.exports = {
         }catch(err){
             res.status(400).json(err);
         }
+    },
+    async getRejectedBet(req,res){
+        try{
+            const bets = await Bet.find({sender : req.body.userId, winner: null, approved:null}).populate('receiver')
+            res.status(200).json(bets);
+        }catch(err){
+            res.status(400).json(err);
+        }
+        
     }   
 
 }

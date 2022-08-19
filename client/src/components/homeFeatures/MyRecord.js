@@ -3,10 +3,12 @@ import Auth from '../../util/auth';
 
 function MyRecord(){
     let loggedIn = Auth.loggedIn();
+    let user = Auth.getProfile().data.username;
 
 
     return(
         <>
+        <h3>{user}</h3>
             <div className="myRecord">
                 <div>
                     <p>W</p>

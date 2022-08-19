@@ -6,21 +6,30 @@ import './betRequests.css'
 
 
 function BetRequests({userId}){
-    const [activeBets, setBets] = useState([])
+    const [bets, setBets] = useState({activeBets:[], rejectedBets:[]})
     const [loading, setLoading] = useState(true);
     
     
 
     useEffect(()=>{
 
-        axios.post('http://localhost:3001/api/bets/pendingBets',
-        {
-            "userId": userId
-        })
-            .then(res => setBets(res.data))
-            .catch(error => console.log(error))
-            .finally(() => setLoading(false))
+        const getBetData = async () =>{
+            const activeBets = await axios.post('http://localhost:3001/api/bets/pendingBets',
+            {
+                "userId": userId
+            })
 
+            const rejectedBets = await axios.post('http://localhost:3001/api/bets/rejectedBets',
+            {
+                "userId": userId
+            })
+            
+            setBets({activeBets:activeBets.data, rejectedBets:rejectedBets.data});
+           
+        }
+
+        getBetData();
+        setLoading(false);
 
     },[])
 
@@ -29,14 +38,19 @@ function BetRequests({userId}){
 
     }
 
-    if(activeBets.length === 0){
+    if(bets.activeBets.length === 0 && bets.rejectedBets.length === 0){
         return(<h6>No Requests...</h6>)
     }
      
     return(
         <>
+            {bets.activeBets.map((bet) =>{
+                return (
+                    <BetReqDiv key={bet._id} betData={bet}/>
+                )
+            })}
             
-            {activeBets.map((bet) =>{
+            {bets.rejectedBets.map((bet) =>{
                 return (
                     <BetReqDiv key={bet._id} betData={bet}/>
                 )

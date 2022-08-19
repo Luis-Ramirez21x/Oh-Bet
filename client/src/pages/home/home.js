@@ -5,6 +5,7 @@ import ActiveBets from '../../components/homeFeatures/activeBets/ActiveBets';
 import BetRequests from '../../components/homeFeatures/betRequests/betRequests'
 import { Container, Row} from "react-bootstrap";
 import Auth from '../../util/auth';
+import SentRequests from '../../components/homeFeatures/sentRequests/sentRequests';
 
 function Home(){
 
@@ -21,6 +22,8 @@ function Home(){
                 <Container>
                     <h2>Bet Requests</h2>
                     <BetRequests userId={userId}/>
+                    <h2>Sent Bets</h2>
+                    <SentRequests userId={userId}/>
                     <h2>Active Bets</h2>
                     <ActiveBets userId={userId}/>
                 </Container>

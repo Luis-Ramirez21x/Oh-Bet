@@ -59,6 +59,7 @@ module.exports = {
         await Bet.findById({_id: req.body.betId}) 
             .populate('sender')
             .populate('receiver')
+            .populate('winner')
             .then((bet) => res.json(bet))
             .catch((err) => res.status(500).json(err));
     },
@@ -129,6 +130,15 @@ module.exports = {
             res.status(400).json(err);
         }
         
+    },
+    async getSentRequests(req,res){
+        try{
+            const sentReq = await Bet.find({sender : req.body.userId, winner: null, approved: false}).populate('receiver')
+            res.status(200).json(sentReq);
+        }catch(err){
+            res.status(400).json(err);
+        }
+            
     }   
 
 }

@@ -6,6 +6,7 @@ import BetCardHeader from "./betCardheader";
 import Auth from '../../util/auth';
 import './bet.css'
 import BetCRUD from "./betCRUD";
+import DeclareWinner from "./declareWinner";
 
 
 
@@ -30,7 +31,7 @@ function BetDetails({betData}){
             return 'Status: Bet Is Live';
         }else if(!approved){
             return 'Status: Pending Apporval...';
-        } else return `Winner: ${winner}`
+        } else return `Winner: ${winner.username}`
     }
 
 
@@ -70,7 +71,8 @@ function BetDetails({betData}){
   
             </div>
 
-            {(!betData.approved && betData.sender._id !== userId && betData.approved != null) ? (<BetCRUD betData={betData} />) : null}
+            {(!betData.approved && betData.sender._id !== userId  && betData.approved != null) ? (<BetCRUD betData={betData} />) : null}
+            {((userId === sender._id || userId === receiver._id) && (!winner?._id || !winner)  && approved  )? (<DeclareWinner betData={betData}/>) : null}
         </>
     )
 }

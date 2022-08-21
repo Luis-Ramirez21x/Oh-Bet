@@ -28,12 +28,11 @@ const userSchema = new Schema({
         ref:"Bet"
       }
     ],
-    bets:[
-        {
+    record:{
         type:Schema.Types.ObjectId,
-        ref:"Bet"
+        ref:"Record"
         }
-    ]
+    
   
     
   });

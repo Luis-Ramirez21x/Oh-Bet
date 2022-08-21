@@ -176,6 +176,15 @@ module.exports = {
             res.status(400).json(err);
         }
 
-    }   
+    },
+    async acceptBet(req,res){
+        
+    },
+    async denyBet(req,res){
+
+    },
+    async declareWinner(req,res){
+
+    }
 
 }

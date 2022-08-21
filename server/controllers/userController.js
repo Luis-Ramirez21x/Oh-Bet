@@ -1,4 +1,4 @@
-const {User, Bet} = require('../models');
+const {User, Bet, Record} = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -8,11 +8,18 @@ module.exports = {
         let {name, admin, username, password} = req.body
 
         try{
+            const record = await Record.create({
+                "win": 0,
+                "loss": 0,
+                "live": 0
+            })
+
             const user = await User.create({
                 "name":name,
                 "admin": false,
                 "username": username,
-                "password": password
+                "password": password,
+                "record": record
             })
             const token = signToken(user);
             res.status(200).json({user, token});

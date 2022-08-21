@@ -20,6 +20,7 @@ function Home(){
                     
                 </Container>
                 <Container>
+                    <h1>Your Bet Feed</h1>
                     <h2>Bet Requests</h2>
                     <BetRequests userId={userId}/>
                     <h2>Sent Bets</h2>

@@ -139,6 +139,43 @@ module.exports = {
             res.status(400).json(err);
         }
             
+    },
+    async getRecord(req,res){
+
+        const user = JSON.stringify(req.body.userId);
+
+        try{
+
+            const bets = await Bet.find({
+                $or:[{
+                sender:req.body.userId
+            },
+            {
+                receiver: req.body.userId
+            }]})
+
+            //logic for W/L
+            let record = {win:0, loss:0, live:0};
+
+            for(i=0; i<bets.length; i++){
+                let winner = bets[i].winner;
+                
+                if( JSON.stringify(winner) === user){
+                    record.win ++;
+                }else if( winner == null && bets[i].approved){
+                    record.live++;
+                }else if(winner != null ){
+                    record.loss++;
+                }
+            }
+            
+
+            res.status(200).json(record);
+
+        }catch(err){
+            res.status(400).json(err);
+        }
+
     }   
 
 }

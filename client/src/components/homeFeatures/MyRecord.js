@@ -1,27 +1,46 @@
 import './MyRecord.css'
 import Auth from '../../util/auth';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function MyRecord(){
     let loggedIn = Auth.loggedIn();
-    let user = Auth.getProfile().data.username;
+    let user = Auth.getProfile().data;
+    let [record , setRecord]= useState();
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() =>{
+
+        axios.post('http://localhost:3001/api/bets/getRecord',{
+            "userId" : user._id
+        })
+        .then( res => setRecord(res.data))
+        .catch(error => console.log(error))
+        .finally(() => setLoading(false))
+
+    },[])
+
+    if(loading){
+        return(<p>Getting record...</p>)
+    }
 
 
     return(
         <>
-        <h3>{user}</h3>
+        <h3>{user.username}</h3>
             <div className="myRecord">
                 <div>
                     <p>W</p>
-                    <p>6</p>
+                    <p>{record.win}</p>
                 
                 </div>
                 <div>
                     <p>L</p>
-                    <p>2</p>
+                    <p>{record.loss}</p>
                 </div>
                 <div>
                     <p>In the Money</p>
-                    <p>5</p>
+                    <p>{record.live}</p>
                 </div>
             </div>
 

@@ -18,8 +18,8 @@ function BetDetails({betData}){
     let userId = Auth.getProfile().data._id;
     let {sender, receiver, approved, condition, reward, winner, paidOut } = betData;
     
-    
-    let canEdit = (userId = sender._id) && approved == false;
+    console.log(betData)
+    let canEdit = (userId === sender._id) && approved == false;
     
     
     const [loading, setLoading] = useState(false);

@@ -1,4 +1,4 @@
-const {User, Bet} = require('../models');
+const {User, Bet, Record} = require('../models');
 const { populate } = require('../models/User');
 
 module.exports = {
@@ -179,6 +179,37 @@ module.exports = {
     },
     async acceptBet(req,res){
         
+        try{
+
+            const bet = await Bet.findByIdAndUpdate(
+                {_id: req.body._id},
+                {   
+                    approved: true
+                },
+                { new: true})
+            
+                //updating 
+            const sendingUser = await User.findById({"_id": req.body.sender}).populate("record");
+            const sendingRecord = await Record.findByIdAndUpdate(
+                {"_id": sendingUser.record._id},
+                {
+                    "live": sendingUser.record.live + 1
+                }
+            )
+
+            const recievingUser = await User.findById({"_id": req.body.receiver}).populate("record");
+            const recievingRecord = await Record.findByIdAndUpdate(
+                {"_id": recievingUser.record._id},
+                {
+                    "live": recievingUser.record.live + 1
+                }
+            )
+
+            res.status(200).json(bet);
+
+        }catch(err){
+            res.status(400).json(err);
+        }
     },
     async denyBet(req,res){
 

@@ -11,7 +11,7 @@ function BetCRUD({betData}){
     let [formData, setFormData] =useState({condition:betData.condition, reward:betData.reward})
     const [showAlert, setShowAlert] = useState(false);
     const [validated] = useState(false);
-
+    
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -21,13 +21,13 @@ function BetCRUD({betData}){
 
     async function acceptBet(event){
         event.preventDefault();
+        
         try{
 
-            let data = await axios.put('http://localhost:3001/api/bets',{
-                ...betData, 
-                approved: true, 
-                sender: betData.sender._id, 
-                receiver: betData.receiver._id 
+            let data = await axios.post('http://localhost:3001/api/bets/acceptBet',{
+                "_id": betData._id,
+	            "sender" : betData.sender._id,
+	            "receiver": betData.receiver._id
         })
 
             window.location.reload();

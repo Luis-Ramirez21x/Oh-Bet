@@ -8,6 +8,7 @@ import Register from './components/login-signup/Register';
 import CreateBet from './pages/createBet/createBet';
 import SingleBet from './pages/singleBet/singleBet';
 import AllBets from './pages/allBets/allBets';
+import MyBets from './pages/myBets/myBets'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path='/place-bet' element={<CreateBet/>} />
             <Route path='/bet-details/:betId' element={<SingleBet/>} />
             <Route path='/' element={<AllBets/>} />
+            <Route path ='/my-bets' element={<MyBets/>} />
         </Routes>
       </BrowserRouter>
     </>

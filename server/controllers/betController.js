@@ -142,35 +142,11 @@ module.exports = {
     },
     async getRecord(req,res){
 
-        const user = JSON.stringify(req.body.userId);
-
         try{
 
-            const bets = await Bet.find({
-                $or:[{
-                sender:req.body.userId
-            },
-            {
-                receiver: req.body.userId
-            }]})
+            const user = await User.findById({_id: req.body.userId}).populate('record');
 
-            //logic for W/L
-            let record = {win:0, loss:0, live:0};
-
-            for(i=0; i<bets.length; i++){
-                let winner = bets[i].winner;
-                
-                if( JSON.stringify(winner) === user){
-                    record.win ++;
-                }else if( winner == null && bets[i].approved){
-                    record.live++;
-                }else if(winner != null ){
-                    record.loss++;
-                }
-            }
-            
-
-            res.status(200).json(record);
+            res.status(200).json(user.record);
 
         }catch(err){
             res.status(400).json(err);
@@ -211,11 +187,76 @@ module.exports = {
             res.status(400).json(err);
         }
     },
-    async denyBet(req,res){
-
-    },
     async declareWinner(req,res){
+        try{
+            
+            const bet = await Bet.findByIdAndUpdate(
+                {_id: req.body._id},
+                {   
+                    "winner": req.body.winner
+                },
+                { new: true})
+            
+            const sendingUser = await User.findById({"_id": req.body.sender}).populate("record");
+            const recievingUser = await User.findById({"_id": req.body.receiver}).populate("record");
 
+            if(JSON.stringify(sendingUser._id) === JSON.stringify(req.body.winner)){
+                const sendingRecord = await Record.findByIdAndUpdate(
+                    {"_id": sendingUser.record._id},
+                    {
+                        "win": sendingUser.record.win + 1,
+                        "live": sendingUser.record.live - 1
+                    }
+                )
+                const recievingRecord = await Record.findByIdAndUpdate(
+                    {"_id": recievingUser.record._id},
+                    {
+                        "live": recievingUser.record.live - 1,
+                        "loss": recievingUser.record.loss + 1
+                    }
+                )
+            }else{
+                const sendingRecord = await Record.findByIdAndUpdate(
+                    {"_id": sendingUser.record._id},
+                    {
+                        "loss": sendingUser.record.loss + 1,
+                        "live": sendingUser.record.live - 1
+                    }
+                )
+                const recievingRecord = await Record.findByIdAndUpdate(
+                    {"_id": recievingUser.record._id},
+                    {
+                        "win": recievingUser.record.win + 1,
+                        "live": recievingUser.record.live - 1,
+                    }
+                )
+            }
+
+            res.status(200).json(bet);
+
+        }catch(err){
+            res.status(400).json(err);
+        }
+    },
+    async getCurrentUsersBetHistory(req,res){
+        try{
+
+            const user = await User.findById({_id: req.body.userId}).populate('betsPending');
+            const allBets = user.betsPending;
+            const completedBets = [];
+
+            for(i=0; i < allBets.length; i++){
+                if(allBets[i].winner !== null){
+                    completedBets.push(allBets[i]);
+                }
+            }
+
+
+
+            res.status(200).json(completedBets);
+        }catch(err){
+            res.status(400).json(err);
+        }
     }
 
 }

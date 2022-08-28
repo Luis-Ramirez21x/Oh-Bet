@@ -9,9 +9,11 @@ function DeclareWinner({betData}){
 
         try{
 
-            let data = await axios.put('http://localhost:3001/api/bets',{
-                ...betData, 
-                winner: userId
+            let data = await axios.post('http://localhost:3001/api/bets/declareWinner',{
+                "_id": betData._id,
+                "sender" : betData.sender._id,
+	            "receiver": betData.receiver._id, 
+                "winner": userId
         })
             
             window.location.reload();

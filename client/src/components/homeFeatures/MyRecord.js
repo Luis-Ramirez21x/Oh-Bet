@@ -2,12 +2,14 @@ import './MyRecord.css'
 import Auth from '../../util/auth';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Badge } from 'react-bootstrap';
 
-function MyRecord(){
+function MyRecord({unpaidCnt}){
     let loggedIn = Auth.loggedIn();
     let user = Auth.getProfile().data;
     let [record , setRecord]= useState();
     const [loading, setLoading] = useState(true);
+    
     
     useEffect(() =>{
 
@@ -55,6 +57,7 @@ function MyRecord(){
                     </a>
                 </div>
                 <div>
+                <Badge bg="danger">{unpaidCnt}</Badge>
                     <a href='/my-bets'>
                         <p>My Past Bets</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-lines-fill" viewBox="0 0 16 16">

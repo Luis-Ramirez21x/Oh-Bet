@@ -241,19 +241,67 @@ module.exports = {
     async getCurrentUsersBetHistory(req,res){
         try{
 
-            const user = await User.findById({_id: req.body.userId}).populate('betsPending');
-            const allBets = user.betsPending;
-            const completedBets = [];
+            let bets = await Bet.find({
+                $or:[
+                    {
+                        sender: req.body.userId
+                    },
+                    {
+                        receiver: req.body.userId
+                    }
+                ],
+                $and: [
+                    
+                    {
+                        approved: true
+                    },
 
-            for(i=0; i < allBets.length; i++){
-                if(allBets[i].winner !== null){
-                    completedBets.push(allBets[i]);
+                ]
+            }).populate('sender').populate('receiver')
+
+            for(i=0; i<bets.length ;i++){
+                if(bets[i].winner == null){
+                    bets.splice(i,1);
                 }
             }
 
 
 
-            res.status(200).json(completedBets);
+            res.status(200).json(bets);
+        }catch(err){
+            res.status(400).json(err);
+        }
+    },
+    async getUnpaidBetCount(req,res){
+        try{
+
+            let bets = await Bet.find({
+                $or:[
+                    {
+                        sender: req.body.userId
+                    },
+                    {
+                        receiver: req.body.userId
+                    }
+                ],
+                $and: [
+                    
+                    {
+                        approved: true
+                    },
+                    {
+                        paidOut: false
+                    }
+                ]
+            })
+
+            for(i=0; i<bets.length ;i++){
+                if(bets[i].winner == null){
+                    bets.splice(i,1);
+                }
+            }
+
+            res.status(200).json(bets.length);
         }catch(err){
             res.status(400).json(err);
         }

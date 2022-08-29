@@ -1,0 +1,22 @@
+.myBets{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border-radius: 10px;
+}
+
+
+
+.green{
+    border:1px solid green;
+
+}
+
+.red{
+    border: 1px solid red;
+}
+
+a{
+    text-decoration: none;
+    
+}

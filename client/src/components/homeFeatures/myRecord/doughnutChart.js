@@ -5,7 +5,34 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 function DoughtNutChart({recordData}){
 
-   
+   if(recordData.win == 0 && recordData.loss == 0){
+        return(
+            <>
+                <Doughnut data={ 
+                    {
+                        labels: ['W/L'],
+                        datasets: [
+                        {
+                            id:1,
+                            label: 'Win/Loss',
+                            data: [1],
+                            backgroundColor: [
+                                
+                                'rgba(189, 195, 199)',
+                                
+                            ],
+                        },
+                        
+                        ],
+
+                    }
+                } 
+            
+                />
+            
+            </>
+        )
+   }
 
     return(
         <>

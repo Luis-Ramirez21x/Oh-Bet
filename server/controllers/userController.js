@@ -56,6 +56,21 @@ module.exports = {
         await User.findById({_id: req.body.userId}) 
             .then((user) => res.json(user))
             .catch((err) => res.status(500).json(err));
-    }
+    },
+    async getUserRankings(req,res){
+        try{
 
+            let users = await User.find().populate('record')
+
+            let rankings = users.sort((a,b) => 
+            b.record.win - a.record.win || a.record.loss - b.record.loss)
+
+
+            res.status(200).json(rankings);   
+
+        }catch(err){ 
+            res.status(400).json(err);
+        }
+    } 
+ 
 }

@@ -1,6 +1,6 @@
 import './home.css';
 import Quote from '../../components/homeFeatures/quote'
-import MyRecord from '../../components/homeFeatures/MyRecord';
+import MyRecord from '../../components/homeFeatures/myRecord/MyRecord';
 import ActiveBets from '../../components/homeFeatures/activeBets/ActiveBets';
 import BetRequests from '../../components/homeFeatures/betRequests/betRequests'
 import { Container, Row} from "react-bootstrap";

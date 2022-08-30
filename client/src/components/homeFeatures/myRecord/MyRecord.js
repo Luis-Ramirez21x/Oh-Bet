@@ -1,13 +1,14 @@
 import './MyRecord.css'
-import Auth from '../../util/auth';
+import Auth from '../../../util/auth';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Badge } from 'react-bootstrap';
+import DoughtNutChart from './doughnutChart';
 
 function MyRecord({unpaidCnt}){
     let loggedIn = Auth.loggedIn();
     let user = Auth.getProfile().data;
-    let [record , setRecord]= useState();
+    let [data , setData]= useState({});
     const [loading, setLoading] = useState(true);
     
     
@@ -16,33 +17,36 @@ function MyRecord({unpaidCnt}){
         axios.post('http://localhost:3001/api/bets/getRecord',{
             "userId" : user._id
         })
-        .then( res => setRecord(res.data))
+        .then( res => setData(res.data))
         .catch(error => console.log(error))
         .finally(() => setLoading(false))
 
-    })
+    },[])
 
     if(loading){
         return(<p>Getting record...</p>)
     }
 
-
+    console.log(data)
     return(
         <>
         <h3>{user.username}</h3>
             <div className="myRecord">
                 <div>
                     <p>W</p>
-                    <p>{record.win}</p>
+                    <p>{data.record.win}</p>
                 
                 </div>
                 <div>
                     <p>L</p>
-                    <p>{record.loss}</p>
+                    <p>{data.record.loss}</p>
                 </div>
                 <div>
                     <p>In the Money</p>
-                    <p>{record.live}</p>
+                    <p>{data.record.live}</p>
+                </div>
+                <div>
+                    <DoughtNutChart recordData={data.record}/>
                 </div>
                 <div>
                     <a href='leader-boards'>
@@ -52,7 +56,8 @@ function MyRecord({unpaidCnt}){
                         <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
                         <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
                         </svg>
-                        <p>2nd</p>
+                        <p>#</p>
+                        <p>{data.rank}</p>
                     </a>
                 </div>
             </div>

@@ -144,9 +144,16 @@ module.exports = {
 
         try{
 
+            let users = await User.find().populate('record')
+
+            let rankings = users.sort((a,b) => 
+            b.record.win - a.record.win || a.record.loss - b.record.loss)
+
+            let rank = rankings.findIndex((user) => JSON.stringify(user._id) == JSON.stringify(req.body.userId));
+            rank++;
             const user = await User.findById({_id: req.body.userId}).populate('record');
 
-            res.status(200).json(user.record);
+            res.status(200).json({record:user.record, rank:rank});
 
         }catch(err){
             res.status(400).json(err);
@@ -291,6 +298,9 @@ module.exports = {
                     },
                     {
                         paidOut: false
+                    },
+                    {
+                        winner: req.body.userId
                     }
                 ]
             })

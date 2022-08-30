@@ -7,8 +7,10 @@ function MyBetDiv({betData, userId}){
     
     return(<>
         <a href={`/bet-details/${betData._id}`}>
-        {paidOut? null: 
-                <Badge pill bg="danger">Unpaid</Badge>
+        {!paidOut && userId == winner? 
+        
+        <Badge pill bg="danger">Unpaid</Badge>:  null
+                
             }
         <div className={`myBets ${status}`}>
             

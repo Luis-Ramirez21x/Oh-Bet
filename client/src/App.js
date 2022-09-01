@@ -10,12 +10,16 @@ import SingleBet from './pages/singleBet/singleBet';
 import AllBets from './pages/allBets/allBets';
 import MyBets from './pages/myBets/myBets'
 import LeaderBoard from './pages/leaderBoard/leaderBoard';
+import StartUp from './pages/startUpPage/startup';
+import { useState } from 'react';
 
 
 function App() {
+  let [showNav, setNav] = useState(false);
+
   return (
     <>
-      <Navv/>
+      {showNav ? <Navv/>: null}
       <BrowserRouter>
         <Routes>
             <Route path = '/home' element={<Home/>}/>
@@ -23,7 +27,7 @@ function App() {
             <Route path ='/register' element={<Register/>} />          
             <Route path='/place-bet' element={<CreateBet/>} />
             <Route path='/bet-details/:betId' element={<SingleBet/>} />
-            <Route path='/' element={<AllBets/>} />
+            <Route path='/' element={<StartUp/>} />
             <Route path ='/my-bets' element={<MyBets/>} />
             <Route path='/leader-boards' element={<LeaderBoard/>} />
         </Routes>

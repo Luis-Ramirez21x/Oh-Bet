@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import Auth from '../../util/auth';
 import axios from 'axios';
+import Logo from '../../images/logo_nowatermark.png'
 
 function Login(){
     
@@ -49,8 +50,12 @@ function Login(){
 
 
     return (
-        <>
-            <Form className='login-body' noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <>  <div className='register-container'>
+            <img className='logo' src={Logo}></img>
+
+            <div className='form-w-header'>
+            <h1>Login</h1>
+            <Form className='form-sign-up' noValidate validated={validated} onSubmit={handleFormSubmit}>
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
                 Something went wrong with your login credentials!
                 </Alert>
@@ -78,15 +83,17 @@ function Login(){
                 />
                 <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
                 </Form.Group>
-                <h5>Not a member? Register <a href='/register'>here!</a></h5>
+                <h5 className='form-note'>Not a member? Register <a href='/register' className='form-link'>here!</a></h5>
                 <Button
                 className='login-submit'
                 disabled={!(userFormData.username && userFormData.password)}
                 type='submit'
-                variant='success'>
+                variant='dark'>
                 Submit
                 </Button>
             </Form>
+            </div>
+            </div>
         </>
     )
 

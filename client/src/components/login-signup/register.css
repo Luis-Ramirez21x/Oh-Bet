@@ -1,0 +1,58 @@
+.register-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:#FC287F;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: #FC287F;
+    
+}
+
+.form-sign-up{
+    border: 5px solid white;
+    border-radius: 5px;
+    padding:10px;
+    width:90%;
+    background-color: white;
+    
+}
+
+.form-sign-up > *{
+    margin-top: 10px;
+}
+
+.form-sign-up div label{
+    font-weight: bolder;
+}
+
+.form-sign-up button{
+    color:white;
+    background-color: #FC287F;
+    border: 1px solid #FC287F;
+}
+
+.form-w-header{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-w-header h1{
+    text-align: center;
+    color: white;
+}
+
+.foot-note{
+   position: fixed;
+   bottom: 0;
+}
+.form-note{
+    color: black;
+}
+
+.form-link{
+    color: #FC287F;
+    text-decoration: underline !important;
+}

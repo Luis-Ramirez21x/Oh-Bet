@@ -1,6 +1,7 @@
 .logo{
-    height: 170px;
+    height: 150px;
     Width: 350px;
+    margin-top: 50px;
     
 }
 
@@ -12,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    
 }
 
 .btns{
@@ -22,25 +23,39 @@
     height: 100px;
     width: 100%;
     justify-content: space-evenly;
+    margin-top: 50%;
 }
 
-.btns div{
+.btns button{
     border:3px solid white ;
+    border-radius: 5px;
     width:90%;
     text-align: center;
 }
 
-.sign-up-btn{
-    color: #FC287F;
-    background-color: white;
-}
 
-.login-btn{
-    
-    color:white;
-    background-color: #FC287F;
-}
+
+
 
 .foot-note{
     color: white;
+}
+
+a{
+    text-decoration: none !important;
+    width:100%;
+    align-items: center;
+}
+
+.btn-sign-up{
+    
+    color:#FC287F;
+    width:90%;
+    background-color: white;
+}
+
+.btn-login{
+    border: 1px solid white;
+    color:white;
+    background-color: #FC287F;
 }

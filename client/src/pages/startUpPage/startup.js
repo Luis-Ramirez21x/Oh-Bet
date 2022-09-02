@@ -1,10 +1,21 @@
 import { Button } from 'react-bootstrap';
 import Logo from '../../images/logo_nowatermark.png'
+import { useNavigate } from "react-router-dom";
 import './startUp.css'
 
 
 
 function StartUp(){
+
+    let navigate = useNavigate(); 
+
+    function handleSignUp(){
+        navigate('/register');
+    }
+
+    function handleLogin(){
+        navigate('/login');
+    }
 
 
     return(
@@ -12,14 +23,12 @@ function StartUp(){
         <div className="logoContainer">
             <img className='logo' src={Logo}></img>
             <div className='btns'>
-                <div className='sign-up-btn'>
-                    Sign up
-                </div>
-                <div className='login-btn'>
-                    Login To Exsisting Account
-                </div>
+
+                <button className="btn-sign-up" onClick={handleSignUp}> Sign Up</button>
+                <button className="btn-login" onClick={handleLogin}>Login With Exsisting Account</button>
+                
             </div>
-            <p className='foot-note'>@2022 MIT License V1.0.0</p>
+            
         </div>
         
 

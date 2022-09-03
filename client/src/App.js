@@ -12,14 +12,16 @@ import MyBets from './pages/myBets/myBets'
 import LeaderBoard from './pages/leaderBoard/leaderBoard';
 import StartUp from './pages/startUpPage/startup';
 import { useState } from 'react';
+import Footer from './components/footer/footer';
 
 
 function App() {
-  let [showNav, setNav] = useState(false);
+  let [showNav, setNav] = useState(true);
 
   return (
     <>
       {showNav ? <Navv/>: null}
+      
       <BrowserRouter>
         <Routes>
             <Route path = '/home' element={<Home/>}/>
@@ -32,6 +34,8 @@ function App() {
             <Route path='/leader-boards' element={<LeaderBoard/>} />
         </Routes>
       </BrowserRouter>
+
+      {showNav ? <Footer/>: null}
     </>
   );
 }

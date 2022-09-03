@@ -1,70 +1,26 @@
-import './MyRecord.css'
-import Auth from '../../../util/auth';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Badge } from 'react-bootstrap';
-import DoughtNutChart from './doughnutChart';
-import BetRequests from '../betRequests/betRequests';
-import SentRequests from '../sentRequests/sentRequests';
+import './footer.css'
+import Auth from '../../util/auth';
 
-function MyRecord({unpaidCnt, userId}){
+function Footer(){
     let loggedIn = Auth.loggedIn();
-    let user = Auth.getProfile().data;
-    let [data , setData]= useState({});
-    const [loading, setLoading] = useState(true);
-    
-    
-    useEffect(() =>{
 
-        axios.post('http://localhost:3001/api/bets/getRecord',{
-            "userId" : userId
-        })
-        .then( res => setData(res.data))
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false))
-
-    },[])
-
-    if(loading){
-        return(<p>Getting record...</p>)
-    }
-
-    console.log(data)
     return(
         <>
         
-            <div className="myhub-container">
-                <div className='stats-container'>
-                <h1>My Hub</h1>
-                <p><strong>Rank</strong> <b>#{data.rank}</b></p>
-                <p><i><strong>Wins:</strong></i> <b>{data.record.win}</b></p>
-                <p><i><strong>Losses:</strong></i> <b>{data.record.loss}</b></p>
-                <p><i><strong>Live Bets:</strong></i> <b>{data.record.live}</b></p>
-                </div>
-                
+        <div className='footer'>
                 <div>
-                    <DoughtNutChart recordData={data.record}/>
+                    <a href='leader-boards'>
+                        <p>Leader Boards</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-clipboard-data" viewBox="0 0 16 16">
+                        <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                        </svg>
+                        <p>#</p>
+                        <p>{/*data.rank*/}</p>
+                    </a>
                 </div>
-            
-            </div>
-            <div className='notif-primary'>
-                <h2>Bets</h2>
-                    <p>Recieved</p>
-                    <BetRequests userId={userId}/>
-                    <p>Sent</p>
-                    <SentRequests userId={userId}/>
-            </div>
-
-            <hr/>
-        </>
-
-    )
-
-}
-export default MyRecord;
-
-/*
-            <div className='betOptions'>
                 <div>
                     <a href='/'>
                         <p>All bets</p>
@@ -75,7 +31,7 @@ export default MyRecord;
                     </a>
                 </div>
                 <div>
-                <Badge bg="danger">{unpaidCnt}</Badge>
+                <Badge bg="danger">{/*unpaidCnt*/}</Badge>
                     <a href='/my-bets'>
                         <p>My Past Bets</p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -95,19 +51,10 @@ export default MyRecord;
                     </a>
 
                 </div>
-            </div>
+        </div>
 
-                            <div>
-                    <a href='leader-boards'>
-                        <p>Leader Boards</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-clipboard-data" viewBox="0 0 16 16">
-                        <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
-                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
-                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
-                        </svg>
-                        <p>#</p>
-                        <p>{data.rank}</p>
-                    </a>
-                </div>
+        </>
+    )
+}
 
-*/
+export default Footer;

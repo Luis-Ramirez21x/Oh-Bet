@@ -29,20 +29,18 @@ function Home(){
     return(
         <>
             <Row>
-                <Container>
+                <Container className='home-container'>
                     <Quote/>
-                    <MyRecord unpaidCnt={unpaidBetCnt}/>
+                    <MyRecord unpaidCnt={unpaidBetCnt} userId={userId}/>
                     
-                </Container>
-                <Container>
                     <h1>Your Bet Feed</h1>
-                    <h2>Bet Requests</h2>
-                    <BetRequests userId={userId}/>
-                    <h2>Sent Bets</h2>
-                    <SentRequests userId={userId}/>
+                    
                     <h2>Active Bets</h2>
                     <ActiveBets userId={userId}/>
                 </Container>
+                    
+              
+                
             </Row>
         </>
     )

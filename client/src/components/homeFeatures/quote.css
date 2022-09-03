@@ -1,0 +1,24 @@
+.welcome-container{
+    display: flex;
+    flex-direction: row;
+    background-color: #FC287F;
+    color: white;
+    margin-top: -1.1rem;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+}
+
+.name-container{
+    width: 50%;
+}
+
+
+.quote-container{
+    width:50%;
+}
+.quote-container i{
+    font-size: 15px;
+    
+}

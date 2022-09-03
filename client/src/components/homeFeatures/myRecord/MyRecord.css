@@ -1,13 +1,54 @@
-.myRecord{
+.myhub-container{
+    width:90%;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
-    background-color: beige;
-    justify-content: space-around;
+    justify-content: start;
+    
+    background-color: white;
+    
+    
 }
 
-.betOptions{
-    display: flex;
-    flex-direction: row;
-    background-color: beige;
-    justify-content: space-around;
+.myhub-container div{
+    height: 150px;
+    width: 150px;
+
 }
+
+strong{
+    color:#FC287F
+}
+
+.stats-container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+}
+
+.stats-container h1{
+    color: rgb(129, 126, 126);
+    margin-bottom: 5px;
+}
+
+.stats-container p{
+    margin-bottom: 0px;
+}
+
+hr{
+    width: 90%;
+    height: 10px;
+    color: #FC287F;
+    border:0px;
+}
+
+.notif-primary{
+    width:90%;
+    
+}
+
+.notif-primary h2{
+    color: rgb(129, 126, 126);
+}
+

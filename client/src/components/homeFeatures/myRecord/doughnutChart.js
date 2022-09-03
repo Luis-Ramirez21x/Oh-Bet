@@ -1,10 +1,11 @@
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip);
+
 
 function DoughtNutChart({recordData}){
-
+    
    if(recordData.win == 0 && recordData.loss == 0){
         return(
             <>
@@ -45,10 +46,14 @@ function DoughtNutChart({recordData}){
                         label: 'Win/Loss',
                         data: [recordData.win, recordData.loss],
                         backgroundColor: [
-                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
                             'rgba(255, 99, 132, 0.2)',
                             
                           ],
+                          borderColor:[
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)',
+                          ]
                       },
                       
                     ],

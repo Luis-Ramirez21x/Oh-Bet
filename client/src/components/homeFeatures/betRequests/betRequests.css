@@ -1,20 +1,66 @@
 .betRequest{
-    border:1px solid black;
+    
+    border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.betRequest a{
+    margin: auto;
+}
+.betReq-logo-name{
+    display: flex;
+    flex-direction: row;
+}
+.betReq-header{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid grey;
+    width:70px;
+}
+
+.betReq-header p{
+    margin-bottom: 0;
+    font-size: small;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.betReq-body{
+    width: 100%;
+}
+
+.betReq-body p{
+    margin-bottom: 0;
+    font-size: small;
+    padding-left: 5px;
+    
+}
+
+.betReq-body p:nth-child(1){
+        color: lightgray;
+}
+
+
+
+.sentReq{
+    
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.sentReq a{
+    width:fit-content
+}
+
+.details-btn{
+    width:fit-content;
 }
 
 .activeBets{
-    border:1px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.sentReq{
     border:1px solid black;
     border-radius: 5px;
     display: flex;

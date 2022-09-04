@@ -38,6 +38,8 @@ function BetRequests({userId}){
 
     }
 
+    console.log(bets)
+
     if(bets.activeBets.length === 0 && bets.rejectedBets.length === 0){
         return(<h6>No Requests...</h6>)
     }

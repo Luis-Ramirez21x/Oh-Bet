@@ -29,7 +29,7 @@ function MyRecord({unpaidCnt, userId}){
         return(<p>Getting record...</p>)
     }
 
-    console.log(data)
+    
     return(
         <>
         
@@ -49,7 +49,7 @@ function MyRecord({unpaidCnt, userId}){
             </div>
             <div className='notif-primary'>
                 <h2>Bets</h2>
-                    <p>Recieved</p>
+                    
                     <BetRequests userId={userId}/>
                     <p>Sent</p>
                     <SentRequests userId={userId}/>

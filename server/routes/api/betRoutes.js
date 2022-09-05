@@ -16,7 +16,8 @@ const {
     acceptBet,
     declareWinner,
     getCurrentUsersBetHistory,
-    getUnpaidBetCount} = require('../../controllers/betController');
+    getUnpaidBetCount,
+    getActiveBetsExcludeUser} = require('../../controllers/betController');
 
 // /api/bets
 router.route('/').get(getAllBets).post(createBet).put(editBet);
@@ -35,4 +36,5 @@ router.route('/acceptBet').post(acceptBet);
 router.route('/declareWinner').post(declareWinner)
 router.route('/getBetHistory').post(getCurrentUsersBetHistory);
 router.route('/unpaidBetCount').post(getUnpaidBetCount);
+router.route('/activeBetsExcludeUser').post(getActiveBetsExcludeUser);
 module.exports = router;

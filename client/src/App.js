@@ -32,6 +32,7 @@ function App() {
             <Route path='/' element={<StartUp/>} />
             <Route path ='/my-bets' element={<MyBets/>} />
             <Route path='/leader-boards' element={<LeaderBoard/>} />
+            <Route path='/all-bets' element={<AllBets/>} />
         </Routes>
       </BrowserRouter>
 

@@ -1,9 +1,10 @@
 .betRequest{
     
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid lightgrey;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .betRequest a{
@@ -16,7 +17,7 @@
 .betReq-header{
     display: flex;
     flex-direction: column;
-    border-right: 1px solid grey;
+    
     width:70px;
 }
 
@@ -60,10 +61,3 @@
     width:fit-content;
 }
 
-.activeBets{
-    border:1px solid black;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}

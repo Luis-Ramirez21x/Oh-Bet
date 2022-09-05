@@ -24,7 +24,7 @@ function SentRequests({userId}){
     }
 
     if(sentReq.length === 0){
-        return(<h6>No Active Bets</h6>)
+        return(<h6>No Active Bets...</h6>)
     }
     
     return(

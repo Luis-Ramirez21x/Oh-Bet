@@ -76,6 +76,29 @@ module.exports = {
             .then((bet) => res.json(bet))
             .catch((err) => res.status(500).json(err));
     },
+    async getActiveBetsExcludeUser(req,res){
+        try{
+            const bets = await Bet.find({
+            $and: [{
+                sender: {$ne: req.body.userId}
+            },
+            {
+                receiver: {$ne: req.body.userId}
+            },
+            {
+                winner:null
+            },
+            {
+                approved:true
+            }
+        ],
+
+        }).populate('sender').populate('receiver')
+            res.status(200).json(bets);
+        }catch(err){
+            res.status(400).json(err);
+        }
+    },
     async getCompletedBets(req,res){
         await Bet.find({winner: {$ne:null}})
             .populate('sender')

@@ -1,0 +1,60 @@
+.bet-feed-container{
+    width: 90%;
+}
+
+.bet-feed-container h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.bet-feed-container h2{
+    color: rgb(129, 126, 126);
+    font-size: large;
+    font-weight: bolder;
+    padding: 5px;
+}
+
+.bet-feed-container h6{
+    color: lightgrey;
+    font-size: small;
+}
+
+/* Active bet div CSS*/
+.activeBets{
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: black; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.activeBets a{
+    width:40px;
+
+}
+
+.activeBets-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    width:75px;
+}
+
+.activeBets p{
+    font-size: small;
+    margin-bottom: 0px;
+}
+
+.wager-container :nth-child(1-2){
+    color: lightgray;
+    
+}
+
+.wager-container{
+    min-width: 200px;
+    width:30%;
+    padding:5px
+}

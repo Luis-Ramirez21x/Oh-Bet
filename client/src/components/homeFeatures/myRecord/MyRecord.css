@@ -39,8 +39,8 @@ strong{
 hr{
     width: 90%;
     height: 10px;
-    color: #FC287F;
-    border:0px;
+    color: black !important;
+    opacity: 1 !important;
 }
 
 .notif-primary{

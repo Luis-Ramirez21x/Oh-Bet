@@ -33,10 +33,14 @@ function Home(){
                     <Quote/>
                     <MyRecord unpaidCnt={unpaidBetCnt} userId={userId}/>
                     
-                    <h1>Your Bet Feed</h1>
-                    
-                    <h2>Active Bets</h2>
-                    <ActiveBets userId={userId}/>
+                    <div className='bet-feed-container'>
+                        <h1>Bet Feed</h1>
+                        <ActiveBets userId={userId}/>
+                        <div className='footer-offset'>
+                        
+                        </div>
+                    </div>
+                   
                 </Container>
                     
               

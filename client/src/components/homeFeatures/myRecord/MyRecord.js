@@ -51,7 +51,7 @@ function MyRecord({unpaidCnt, userId}){
                 <h2>Bets</h2>
                     
                     <BetRequests userId={userId}/>
-                    <p>Sent</p>
+                    
                     <SentRequests userId={userId}/>
             </div>
 

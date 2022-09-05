@@ -1,0 +1,66 @@
+.all-bets-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /*border: 1px solid black;*/
+
+}
+
+.all-bets-container p{
+    margin-bottom: 0px;
+    font-size: small;
+    padding: 0px;
+}
+
+.all-bets-indiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    border:1px solid grey;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding:5px;
+}
+
+.all-bets-header{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width:30%;
+}
+
+.all-bets-header :nth-child(2){
+    
+    margin-left: 38px;
+}
+
+.all-bets-wager{
+    width: 35%;
+    padding:5px;
+}
+
+.all-bets-wager :nth-child(1){
+    color: lightgray;
+    
+}
+
+.all-bets-prize{
+    width:25%;
+    padding: 5px;
+}
+
+
+.all-bets-prize :nth-child(1){
+    color: lightgray;
+    
+}
+
+.caret{
+    width:10%;
+    margin: auto;
+}
+
+
+

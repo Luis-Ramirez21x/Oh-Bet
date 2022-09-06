@@ -1,0 +1,42 @@
+.bet-page-content{
+    height: 80%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.bet-page-container{
+    
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+   
+}
+
+.bet-page-container p{
+    color: #1B2F38;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 0.9;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.bet-page-container label{
+    color: #FC287F;
+    font-weight: bold;
+    margin-bottom: 1px;
+    
+}
+
+.bet-page-container button{
+        margin-top: 10px;
+        background-color: #FC287F;
+        border: 1px solid #FC287F;
+}
+

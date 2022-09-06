@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Auth from "../../util/auth";
 import axios from "axios";
 import MyBetDiv from "../../components/myBetFeatures/myBetDiv";
+import './myBets.css'
 
 
 function MyBets(){
@@ -26,10 +27,16 @@ function MyBets(){
 
     console.log(bets);
     return (
-        <>
-            {bets.map((bet) =>{
-                return <MyBetDiv key={bet._id} betData={bet} userId={userId}/>
-            })}
+        <>  
+            <div className="bet-log-container">
+                <h1>Bet Log</h1>
+                {bets.map((bet) =>{
+                    return <MyBetDiv key={bet._id} betData={bet} userId={userId}/>
+                })}      
+            </div>
+            <div className='footer-offset'>
+                        
+            </div>
         </>
     )
 }

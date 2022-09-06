@@ -1,22 +1,73 @@
+
+.log-containers{
+    width:90%;
+    border-bottom:1px solid Black;
+}
+
 .myBets{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     border-radius: 10px;
-}
-
-
-
-.green{
-    border:1px solid green;
-
-}
-
-.red{
-    border: 1px solid red;
-}
-
-a{
-    text-decoration: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
     
 }
+
+
+
+.myBets p{
+    font-size:small;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.myBet-person{
+    width:30%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.myBet-wager{
+    width:40%;
+
+    
+}
+
+.myBet-wager p{
+    margin-bottom: 1px;
+}
+
+.myBet-prize{
+    width:20%
+}
+
+.myBet-prize p{
+    margin-bottom: 1px;
+}
+
+.p-heads{
+    color:lightslategrey !important
+}
+
+
+
+.win svg{
+    color:green
+
+}
+
+.loss svg{
+    color: red;
+}
+
+.myBets a{
+    text-decoration: none;
+    color: black;
+    
+}
+

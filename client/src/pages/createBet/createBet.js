@@ -80,7 +80,7 @@ function CreateBet(){
     if(loading){
         return(<h2>loading</h2>)
     }
-    console.log(allUsers)
+    
     return(
         <>
             <div className='bet-page-content'>

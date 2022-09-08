@@ -1,6 +1,8 @@
 import BetAccordion from "../../components/bets/betAccordion";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import './allBets.css';
+import { Spring } from 'react-spring';
 
 
 
@@ -29,10 +31,14 @@ function AllBets(){
 
         
     return(
-        <>
+        <>  
             <BetAccordion title={'Toss Up Bets'} bets={betsData.tossUp}/>
             <BetAccordion title={'Active Bets'} bets={betsData.active}/>
             <BetAccordion title={'Completed Bets'} bets={betsData.completed}/>
+
+
+
+            
         </>
        
     )

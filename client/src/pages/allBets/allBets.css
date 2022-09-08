@@ -1,0 +1,54 @@
+.accordion{
+    margin-bottom: 25px !important; 
+    width: 90%;
+    margin: auto;
+    
+}
+
+.accordion-header button{
+    color: #FC287F ;
+    font-weight: bold;
+}
+
+
+.accordion-body{
+        
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: 2px solid lightgrey;
+}
+
+
+.accordion-body div{
+    padding: 3px;
+}
+.accordion-body p{
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+.accordion-names{
+    width:40%;
+}
+
+.accordion-names :nth-child(2){
+    height: 25px;
+    
+}
+
+.accordion-terms{
+    width:40%;
+    margin: auto;
+}
+
+.accordion-terms p {
+    text-align: center;
+    align-content: center;
+}
+
+.accordion-btn{
+    width:fit-content;
+    margin: auto;
+}
+

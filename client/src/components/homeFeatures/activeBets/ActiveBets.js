@@ -33,7 +33,7 @@ function ActiveBets({userId}){
         return(
         <><h2>My Live Bets</h2><h6>No Live Bets...</h6></>)
     }
-    console.log(activeBets)
+    
     return(
         <>
                 <h2>My Live Bets</h2>

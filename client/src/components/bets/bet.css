@@ -23,25 +23,9 @@
     justify-content: space-evenly;
 }
 
-.accordion{
-    margin: 10px 20px 10px 20px
-    
-}
 
-.accordion-body{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    border:1px solid grey;
-    padding: 2px !important;
 
-}
-.accordVs{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
-}
+
 
 .allBets{
     text-align: center;

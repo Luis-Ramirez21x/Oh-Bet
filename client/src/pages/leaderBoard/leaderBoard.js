@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RankingsDiv from "../../components/leaderboardFeatures/rankingsDiv";
-import { Table } from "react-bootstrap";
+import Table from 'react-bootstrap/Table';
+import './leaderBoard.css'
 
 
 function LeaderBoard(){
@@ -22,27 +23,28 @@ function LeaderBoard(){
     console.log(usersRanked)
 
     return (
-        <>
-            <h1>Rankings</h1>
+        <>  
+            <div className="leaderboard-container">
+                <h1>Rankings</h1>
 
-            <Table striped>
-                <thead>
-                    <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Win</th>
-                    <th>Loss</th>
-                    <th>Live</th>
-                    <th>PCT</th>
-                    </tr>
-                    {usersRanked.map((user, index) =>{
-                        return <RankingsDiv key={index} user={user} rank={index + 1}/>
-                    })}
-                </thead>
-            </Table>
-            
-        
+                <Table striped>
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Win</th>
+                        <th>Loss</th>
+                        <th>Live</th>
+                        <th>PCT</th>
+                        </tr>
+                        {usersRanked.map((user, index) =>{
+                            return <RankingsDiv key={index} user={user} rank={index + 1}/>
+                        })}
+                    </thead>
+                </Table>
+            </div>
+                    
         </>
     )
 }

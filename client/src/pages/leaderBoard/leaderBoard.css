@@ -1,0 +1,11 @@
+.leaderboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table{
+    font-size: 13px;
+    
+    
+}

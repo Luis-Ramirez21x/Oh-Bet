@@ -26,7 +26,7 @@
     border-color: black; 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 5px;
 }
 

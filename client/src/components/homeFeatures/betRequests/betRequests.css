@@ -9,10 +9,12 @@
 
 .betRequest a{
     margin: auto;
+    width: fit-content;
 }
 .betReq-logo-name{
     display: flex;
     flex-direction: row;
+    width: 35%;
 }
 .betReq-header{
     display: flex;
@@ -29,7 +31,7 @@
 }
 
 .betReq-body{
-    width: 100%;
+    width: 45%;
 }
 
 .betReq-body p{

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Row } from "react-bootstrap";
 import BetDetails from "../../components/bets/betDetails";
-
+import './singleBet.css'
 
 
 function SingleBet(){
@@ -30,11 +30,11 @@ function SingleBet(){
     
     return(
         <>
-            <Container>
-                <Row>
-                    <BetDetails betData={betData}/>
-                </Row>
-            </Container>
+            <div className="betDets-container">
+                <BetDetails betData={betData}/>
+            </div>
+                    
+                
         </>
         )
 }

@@ -24,3 +24,13 @@ svg{
     color: white ;
 }
 
+/* off canvas*/
+
+.offcanvas-title{
+    color:#FC287F;
+    font-weight: bold;
+}
+
+.live{
+    color:#fb69a6 !important;
+}

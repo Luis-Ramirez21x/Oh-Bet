@@ -20,7 +20,7 @@ function LeaderBoard(){
 
     if(loading) return <h1>Loading...</h1>
 
-    console.log(usersRanked)
+   
 
     return (
         <>  

@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: -17px;
     
 }
 
@@ -22,7 +23,7 @@
     align-items: center;
     height: 100px;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-around;
     margin-top: 50px;
 }
 
@@ -39,6 +40,7 @@
 
 .foot-note{
     color: white;
+    margin-bottom: 84px;
 }
 
 a{

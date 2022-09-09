@@ -3,6 +3,8 @@ import './genActiveBetDiv.css'
 
 function GenActiveBetDiv({betData}){
 
+    
+
     return(
         <>
             <div className="all-bets-indiv">

@@ -180,10 +180,11 @@ function BetDetails({betData}){
             </div>
                     
             <div className="crud-btns-container">
-            {(!betData.approved && betData.sender._id !== userId  && betData.approved != null) ? (<BetCRUD betData={betData} />) : null}
+            
             {((userId === sender._id || userId === receiver._id) && (!winner?._id || !winner)  && approved  )? (<DeclareWinner betData={betData}/>) : null}
             {betData?.winner?._id === userId && !paidOut? (<PaidOut betData={betData}/>): null}
             </div>
+            {(!betData.approved && betData.sender._id !== userId  && betData.approved != null) ? (<BetCRUD betData={betData} />) : null}
         </>
     )
 }

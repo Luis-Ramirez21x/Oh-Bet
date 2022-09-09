@@ -13,7 +13,7 @@ function RankingsDiv({user, rank}){
             <td>{win}</td>
             <td>{loss}</td>
             <td>{live}</td>
-            <td>{(win / (win + loss)).toString() }</td>
+            <td>{Number(win / (win + loss)).toFixed(2).toString() }</td>
         </tr>
     )
 

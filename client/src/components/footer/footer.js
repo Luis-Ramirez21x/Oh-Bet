@@ -25,6 +25,10 @@ function Footer(){
 
     if(loading) <h3>loading...</h3>
 
+    if(!userId){
+        return null;
+    }
+
     return(
         <>
         

@@ -93,6 +93,7 @@ function Login(){
                 </Button>
             </Form>
             </div>
+            <p className='foot-note'>@2022 MIT License V1.0.0</p>
             </div>
         </>
     )

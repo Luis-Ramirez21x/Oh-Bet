@@ -99,9 +99,61 @@
 
 .crud-btns-container p{
     margin-bottom: 2px;
+    
 }
 .crud-btns-container div{
     width:100%;
     
 }
 
+.betCRUD{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.betCRUD button{
+    color: white;
+    border-radius: 20px !important;
+    padding: 3px 12px 4px 12px !important;
+    margin-bottom: 2px;
+}
+
+.counter-bet-form label{
+    color:#FC287F;
+    font-weight: bold;
+}
+
+.counter-bet-form{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-bet-form button{
+    color:white;
+    margin-top: 10px;
+}
+
+.declare-winner-accordion{
+    flex-direction: column !important;
+    align-items: center;
+}
+
+
+
+.declare-winner-accordion div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.declare-winner-accordion button{
+    width:30%;
+    background-color:#FC287F;
+    border-color: #FC287F;
+}

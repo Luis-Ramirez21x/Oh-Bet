@@ -45,6 +45,9 @@ function ActiveBets({userId}){
                     {activeBets.allBets.map((bet) =>{
                         return <GenActiveBetDiv key={bet._id} betData ={bet} />
                     })}
+
+                    {activeBets.allBets.length === 0? (<h5 style={{padding:'5px'}}>No other active bets...</h5>) : null}
+
                 </div>
 
         

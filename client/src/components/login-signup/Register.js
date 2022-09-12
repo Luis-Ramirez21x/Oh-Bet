@@ -10,10 +10,16 @@ function Register(){
 const [userFormData, setUserFormData] = useState({ name:'',username: '', password: '' });
 const [validated] = useState(false);
 const [showAlert, setShowAlert] = useState(false);
+const [alertMsg, setAlertMsg] = useState('Username already exist!');
 
 const handleInputChange = (event) => {
   const { name, value } = event.target;
-  setUserFormData({ ...userFormData, [name]: value });
+  if(name !== 'name'){
+    setUserFormData({ ...userFormData, [name]: value.replace(/\s/g, '') });
+  }else{
+    setUserFormData({ ...userFormData, [name]: value });
+  }
+  
 };
 
  const handleFormSubmit = async (event) => {
@@ -38,6 +44,7 @@ const handleInputChange = (event) => {
         Auth.login(data.token);
    } catch (err) {
      console.error(err);
+     
      setShowAlert(true);
    }
 
@@ -62,7 +69,7 @@ return (
       <Form noValidate validated={validated} onSubmit={handleFormSubmit} className='form-sign-up'>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
+          {alertMsg}
         </Alert>
 
         <Form.Group>
@@ -76,10 +83,12 @@ return (
             required
           />
           <Form.Control.Feedback type='invalid'>Name is required!</Form.Control.Feedback>
+          
         </Form.Group>
 
         <Form.Group>
           <Form.Label htmlFor='username'>Username</Form.Label>
+
           <Form.Control
             type='text'
             placeholder='Your username...'
@@ -102,6 +111,7 @@ return (
             required
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          <Form.Text>between 4-16 characters, no spaces allowed..</Form.Text>
         </Form.Group>
         <Button
           disabled={!(userFormData.username && userFormData.name && userFormData.password)}

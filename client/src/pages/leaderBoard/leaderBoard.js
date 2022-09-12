@@ -36,7 +36,7 @@ function LeaderBoard(){
                         <th>Win</th>
                         <th>Loss</th>
                         <th>Live</th>
-                        <th>PCT</th>
+                        
                         </tr>
                         {usersRanked.map((user, index) =>{
                             return <RankingsDiv key={index} user={user} rank={index + 1}/>

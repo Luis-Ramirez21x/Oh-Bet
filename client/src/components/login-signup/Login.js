@@ -10,11 +10,12 @@ function Login(){
     const [userFormData, setUserFormData] = useState({ username: '', password: '' });
     const [validated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const [alertMsg, setAlertMsg] = useState();
 
     //form state
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setUserFormData({ ...userFormData, [name]: value });
+        setUserFormData({ ...userFormData, [name]: value.replace(/\s/g, '') });
     };
 
     const handleFormSubmit = async (event) => {
@@ -37,7 +38,8 @@ function Login(){
             
             Auth.login(data.token);
         } catch (err) {
-          console.error(err);
+          
+          setAlertMsg(err.response.data)
           setShowAlert(true);
         }
    
@@ -57,7 +59,7 @@ function Login(){
             <h1>Login</h1>
             <Form className='form-sign-up' noValidate validated={validated} onSubmit={handleFormSubmit}>
                 <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-                Something went wrong with your login credentials!
+                {alertMsg}
                 </Alert>
                 <Form.Group>
                 <Form.Label htmlFor='username'>Username</Form.Label>

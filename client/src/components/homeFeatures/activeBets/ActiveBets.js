@@ -46,7 +46,7 @@ function ActiveBets({userId}){
                         return <GenActiveBetDiv key={bet._id} betData ={bet} />
                     })}
 
-                    {activeBets.allBets.length === 0? (<h5 style={{padding:'5px'}}>No other active bets...</h5>) : null}
+                    {activeBets.allBets.length === 0? (<h6 style={{color:'black', padding:'5px'}}>No other active bets...</h6>) : null}
 
                 </div>
 

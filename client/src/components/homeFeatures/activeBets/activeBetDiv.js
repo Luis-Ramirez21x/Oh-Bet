@@ -22,7 +22,7 @@ function ActiveBetDiv({betData,userId}){
                 </div>
 
                 <div className='wager-container'>
-                    <p>Wager</p>
+                    <p>Wager{" "}:</p>
                     <p>{betData.condition}</p>
                 </div>
 

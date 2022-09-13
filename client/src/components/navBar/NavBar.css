@@ -34,3 +34,7 @@ svg{
 .live{
     color:#fb69a6 !important;
 }
+
+.coming-in-v2{
+    text-decoration: line-through !important;
+}

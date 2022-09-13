@@ -17,8 +17,13 @@
 
 .quote-container{
     width:50%;
+    padding-right:3px;
 }
 .quote-container i{
-    font-size: 15px;
+    font-size: 13px;
     
+}
+
+.quote-container h5{
+    margin-bottom: 2px;
 }

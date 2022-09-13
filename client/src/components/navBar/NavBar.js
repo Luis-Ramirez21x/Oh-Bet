@@ -41,14 +41,14 @@ function Navv(){
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">My Profile</Nav.Link>
-                  <Nav.Link href="#action2">Dark Mode {" "}
+                  <Nav.Link href="#action1" className='coming-in-v2'>My Profile</Nav.Link>
+                  <Nav.Link href="#action2" className='coming-in-v2'>Dark Mode {" "}
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  className="bi bi-toggle-off" viewBox="0 0 16 16">
                   <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
                 </svg>
                   </Nav.Link>
                   {token? (<Nav.Link href="#action3" onClick={Auth.logout} className='live'>Logout</Nav.Link>) : (<Nav.Link href='/login'>Login</Nav.Link>) }
-                  <Nav.Link href="#action4">About</Nav.Link>
+                  <Nav.Link href="#action4" className='coming-in-v2'>About</Nav.Link>
                 </Nav>
 
               </Offcanvas.Body>

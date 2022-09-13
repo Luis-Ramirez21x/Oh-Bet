@@ -18,7 +18,7 @@ function Quote(){
                 <h3>{user.username}!</h3>
             </div>
             <div className="quote-container">
-                <h5 className="quote"><i>{quote.quote}</i></h5>
+                <h5 className="quote"><i>"{quote.quote}"</i></h5>
                 <i>~{quote.author}</i>
             </div>
         </div>

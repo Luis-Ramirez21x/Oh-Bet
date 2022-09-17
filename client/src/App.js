@@ -11,16 +11,32 @@ import AllBets from './pages/allBets/allBets';
 import MyBets from './pages/myBets/myBets'
 import LeaderBoard from './pages/leaderBoard/leaderBoard';
 import StartUp from './pages/startUpPage/startup';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from './components/footer/footer';
+import { ThemeProvider } from '@emotion/react';
 
 
 function App() {
-  let [showNav, setNav] = useState(true);
+
+  const storedDarkMode = localStorage.getItem("DARK_MODE");
+  
+  let [darkMode, setDarkMode] = useState( storedDarkMode);
+  
+
+    function handleToggle(){
+      
+      setDarkMode(!darkMode);
+      
+    }
+
+    useEffect(() => {
+      localStorage.setItem("DARK_MODE", darkMode);
+        
+    },[darkMode]);
 
   return (
     <>
-      {showNav ? <Navv/>: null}
+      <Navv storedDarkMode={storedDarkMode} handleToggle={handleToggle} />
       
       <BrowserRouter>
         <Routes>
@@ -36,7 +52,7 @@ function App() {
         </Routes>
       </BrowserRouter>
 
-      {showNav ? <Footer/>: null}
+       <Footer/>
     </>
   );
 }

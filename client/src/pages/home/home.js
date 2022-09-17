@@ -11,12 +11,13 @@ import SentRequests from '../../components/homeFeatures/sentRequests/sentRequest
 function Home(){
     let userId = Auth.getProfile().data._id;
 
+    const storedDarkMode = localStorage.getItem("DARK_MODE");
    
     
     return(
         <>
             <Row>
-                <Container className='home-container'>
+                <Container className='home-container' id={storedDarkMode == 'true' ? "dark" : ''} >
                     <Quote/>
                     <MyRecord userId={userId}/>
                     

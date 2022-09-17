@@ -8,15 +8,21 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Auth from '../../util/auth';
 import Logo from '../../images/logo_nowatermark.png'
+import { useState } from 'react';
+
+import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 
-function Navv(){
+function Navv({darkMode, handleToggle}){
     const token = Auth.loggedIn()
 
+    
+    const storedDarkMode = localStorage.getItem("DARK_MODE");
+    
     return (
         <>
         {[false].map((expand) => (
-        <Navbar key={expand} variant='dark' expand={expand} className="mb-3">
+        <Navbar key={expand} variant='dark' expand={expand}>
           <Container fluid>
           <a href={token? '/home': '/login'}>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -42,10 +48,8 @@ function Navv(){
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="#action1" className='coming-in-v2'>My Profile</Nav.Link>
-                  <Nav.Link href="#action2" className='coming-in-v2'>Dark Mode {" "}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  className="bi bi-toggle-off" viewBox="0 0 16 16">
-                  <path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/>
-                </svg>
+                  <Nav.Link href="#action2" className={storedDarkMode}>Dark Mode {" "}
+                    <BootstrapSwitchButton checked={storedDarkMode == 'true' ? true:false} onstyle="dark" offstyle="light" size="sm" onChange={handleToggle}/>
                   </Nav.Link>
                   {token? (<Nav.Link href="#action3" onClick={Auth.logout} className='live'>Logout</Nav.Link>) : (<Nav.Link href='/login'>Login</Nav.Link>) }
                   <Nav.Link href="#action4" className='coming-in-v2'>About</Nav.Link>

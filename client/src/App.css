@@ -44,3 +44,40 @@
 .container{
   padding:0px !important;
 }
+
+/* DARK MODE CSS */
+
+
+/*Home*/
+#dark{
+  background-color: #20242c;
+}
+
+#dark p {
+  color: azure;
+}
+
+#dark h2{
+  color: azure;
+}
+
+#dark h6{
+  color: azure;
+}
+
+#dark h1{
+  color: azure;
+}
+
+#dark h5{
+  color:azure
+}
+
+#dark hr{
+  color: azure !important;
+}
+
+#dark button {
+  border:1px solid azure;
+  color: azure;
+}

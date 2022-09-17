@@ -3,7 +3,7 @@ import { Badge } from 'react-bootstrap';
 
 function MyBetDiv({betData, userId}){
     let {winner, sender, receiver, condition, reward, paidOut} = betData
-    let status = winner == userId? 'win':'loss'; 
+    let status = winner === userId? 'win':'loss'; 
     
     return(<>
         <div className='log-containers'>

@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RankingsDiv from "../../components/leaderboardFeatures/rankingsDiv";
 import Table from 'react-bootstrap/Table';
 import './leaderBoard.css'
+import { ThemeContext } from "../../util/themeContext/themeContext";
 
 
 function LeaderBoard(){
     let [usersRanked, setRankings] = useState([]);
     const [loading, setLoading] = useState(true);
+    const {darkMode} = useContext(ThemeContext)
 
     useEffect(() =>{
 
@@ -24,7 +26,7 @@ function LeaderBoard(){
 
     return (
         <>  
-            <div className="leaderboard-container">
+            <div className="leaderboard-container" id={darkMode ? "dark" : ''}>
                 <h1>Rankings</h1>
 
                 <Table striped>

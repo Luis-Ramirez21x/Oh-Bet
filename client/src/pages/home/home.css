@@ -13,3 +13,7 @@
     width:100%;
     height: 85px;
 }
+
+#dark .activeBets-header svg{
+    color: azure;
+}

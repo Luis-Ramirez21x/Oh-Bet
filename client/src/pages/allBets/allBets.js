@@ -1,8 +1,9 @@
 import BetAccordion from "../../components/bets/betAccordion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import './allBets.css';
 import { Spring } from 'react-spring';
+import { ThemeContext } from "../../util/themeContext/themeContext";
 
 
 
@@ -11,6 +12,7 @@ import { Spring } from 'react-spring';
 function AllBets(){
     const [betsData, setData] = useState({tossUp:null, active:null, completed:null})
     const [loading, setLoading] = useState(true);
+    const {darkMode} = useContext(ThemeContext);
 
     useEffect(()=>{
         const fetchData = async () =>{
@@ -32,13 +34,18 @@ function AllBets(){
         
     return(
         <>  
+
+        <div className="all-user-bets-container" id={darkMode ? "dark" : ''}>
+            <div>
             <BetAccordion title={'Toss Up Bets'} bets={betsData.tossUp}/>
             <BetAccordion title={'Active Bets'} bets={betsData.active}/>
             <BetAccordion title={'Completed Bets'} bets={betsData.completed}/>
 
-
-
+            </div>
             
+
+
+        </div>
         </>
        
     )

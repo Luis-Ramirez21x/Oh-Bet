@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Container, Row } from "react-bootstrap";
 import BetDetails from "../../components/bets/betDetails";
 import './singleBet.css'
+import { ThemeContext } from "../../util/themeContext/themeContext";
 
 
 function SingleBet(){
@@ -11,6 +12,7 @@ function SingleBet(){
     const { betId } = useParams();
     const [betData, setBetData] = useState({});
     const [loading, setLoading] = useState(true);
+    const {darkMode} = useContext(ThemeContext);
 
     useEffect(() =>{
 
@@ -30,7 +32,7 @@ function SingleBet(){
     
     return(
         <>
-            <div className="betDets-container">
+            <div className="betDets-container" id={darkMode ? "dark" : ''}>
                 <BetDetails betData={betData}/>
             </div>
                     

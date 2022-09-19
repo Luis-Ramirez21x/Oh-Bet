@@ -1,0 +1,16 @@
+.bi-arrow-up-left-square{
+    color:#1B2F38;
+    margin: auto;
+}
+
+#dark .bi-arrow-up-left-square{
+    color:azure
+}
+
+#dark .bi-pencil-square{
+    color:#1B2F38
+}
+
+#dark .sentReq button{
+    border-color: #1B2F38;
+}

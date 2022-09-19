@@ -1,6 +1,6 @@
 .betDets-container{
     width: 100%;
-    height: 80%;
+    height: 100%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -22,6 +22,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.betCard svg{
+    color:#1B2F38
+}
+
+.betCard .btn-warning svg{
+    color: azure !important
 }
 
 .betCard div{
@@ -156,4 +164,20 @@
     width:30%;
     background-color:#FC287F;
     border-color: #FC287F;
+}
+
+#dark .betCard svg{
+    color:azure 
+}
+
+#dark .betCard .btn-warning svg{
+    color: #1B2F38 !important;
+}
+
+#dark .betCard .btn-warning p{
+    color: #1B2F38 !important;
+}
+
+#dark .betCard .btn-warning{
+    border-color: #1B2F38;
 }

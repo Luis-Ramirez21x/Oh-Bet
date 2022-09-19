@@ -22,12 +22,16 @@
 /* Active bet div CSS*/
 .activeBets{
     border-style: solid;
-    border-width: 0px 0px 2px 0px;
+    border-width: 0px 0px 1px 0px;
     border-color: black; 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-bottom: 5px;
+}
+
+#dark .activeBets{
+    border-color:azure
 }
 
 .activeBets a{
@@ -57,4 +61,21 @@
     min-width: 200px;
     width:30%;
     padding:5px
+}
+
+.activeBets-header svg{
+    color: #1B2F38;
+}
+
+.winner-btn{
+    background-color: rgba(75, 192, 192, 1) !important;
+}
+
+#dark .winner-btn{
+    border: 1px solid rgba(75, 192, 192, 1) ;
+    background-color:#20242c !important;
+}
+
+#dark .winner-btn svg{
+    color: rgba(75, 192, 192, 1);
 }

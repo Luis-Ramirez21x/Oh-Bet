@@ -9,7 +9,7 @@
     flex-direction: row;
     border-radius: 10px;
     width: 100%;
-    align-items: center;
+    align-items: start;
     justify-content: space-evenly;
     margin-bottom: 15px;
     
@@ -50,19 +50,30 @@
     margin-bottom: 1px;
 }
 
+.myBet-person svg{
+    color:#20242c;
+
+}
+
+#dark .myBet-person svg{
+    color:azure !important
+}
+
 .p-heads{
     color:lightslategrey !important
 }
 
 
 
-.win svg{
-    color:green
+.win .bi-caret-up-fill{
+    color:green;
+    margin: auto;
 
 }
 
-.loss svg{
+.loss .bi-caret-down-fill{
     color: red;
+    margin: auto;
 }
 
 .myBets a{

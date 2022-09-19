@@ -8,17 +8,18 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Auth from '../../util/auth';
 import Logo from '../../images/logo_nowatermark.png'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
+import { ThemeContext } from '../../util/themeContext/themeContext';
 
 
-function Navv({darkMode, handleToggle}){
+function Navv(){
     const token = Auth.loggedIn()
-
     
-    const storedDarkMode = localStorage.getItem("DARK_MODE");
-    
+   
+    const {darkMode, toggleDarkMode} = useContext(ThemeContext);
+  
     return (
         <>
         {[false].map((expand) => (
@@ -48,8 +49,8 @@ function Navv({darkMode, handleToggle}){
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="#action1" className='coming-in-v2'>My Profile</Nav.Link>
-                  <Nav.Link href="#action2" className={storedDarkMode}>Dark Mode {" "}
-                    <BootstrapSwitchButton checked={storedDarkMode == 'true' ? true:false} onstyle="dark" offstyle="light" size="sm" onChange={handleToggle}/>
+                  <Nav.Link href="#action2" className=''>Dark Mode {' '}
+                    <BootstrapSwitchButton checked={darkMode} onstyle="dark" offstyle="light" size="sm" onChange={toggleDarkMode}/>
                   </Nav.Link>
                   {token? (<Nav.Link href="#action3" onClick={Auth.logout} className='live'>Logout</Nav.Link>) : (<Nav.Link href='/login'>Login</Nav.Link>) }
                   <Nav.Link href="#action4" className='coming-in-v2'>About</Nav.Link>

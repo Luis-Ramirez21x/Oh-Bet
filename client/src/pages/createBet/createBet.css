@@ -1,5 +1,5 @@
 .bet-page-content{
-    height: 80%;
+    height: 100%;
     width: 100%;
     position: absolute;
     display: flex;
@@ -7,6 +7,14 @@
     align-items: center;
     margin-top: 0%;
     padding-top: 10%;
+}
+
+.bet-page-content svg{
+    color:#1B2F38
+}
+
+#dark .bi-pen-fill{
+    color: azure !important;
 }
 
 .bet-page-container{

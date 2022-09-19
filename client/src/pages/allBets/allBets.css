@@ -1,8 +1,22 @@
+.all-user-bets-container{
+    
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding-top: 10%;
+}
+
 .accordion{
     margin-bottom: 25px !important; 
     width: 90%;
     margin: auto;
     
+}
+
+#dark .accordion{
+    --bs-accordion-bg: #32373f;
+    border-color: lightgrey;
+    --bs-accordion-active-bg:#303641;
 }
 
 .accordion-header button{

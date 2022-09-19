@@ -11,33 +11,22 @@ import AllBets from './pages/allBets/allBets';
 import MyBets from './pages/myBets/myBets'
 import LeaderBoard from './pages/leaderBoard/leaderBoard';
 import StartUp from './pages/startUpPage/startup';
-import { useState, useEffect } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import Footer from './components/footer/footer';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from './util/themeContext/themeProvider'
+
 
 
 function App() {
 
-  const storedDarkMode = localStorage.getItem("DARK_MODE");
-  
-  let [darkMode, setDarkMode] = useState( storedDarkMode);
-  
 
-    function handleToggle(){
-      
-      setDarkMode(!darkMode);
-      
-    }
 
-    useEffect(() => {
-      localStorage.setItem("DARK_MODE", darkMode);
-        
-    },[darkMode]);
+
 
   return (
     <>
-      <Navv storedDarkMode={storedDarkMode} handleToggle={handleToggle} />
-      
+    <ThemeProvider>
+      <Navv/>
       <BrowserRouter>
         <Routes>
             <Route path = '/home' element={<Home/>}/>
@@ -51,8 +40,8 @@ function App() {
             <Route path='/all-bets' element={<AllBets/>} />
         </Routes>
       </BrowserRouter>
-
        <Footer/>
+    </ThemeProvider>
     </>
   );
 }

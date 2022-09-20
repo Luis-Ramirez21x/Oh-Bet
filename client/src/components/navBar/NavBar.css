@@ -28,7 +28,8 @@ svg{
 
 .offcanvas-title{
     color:#FC287F;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: larger;
 }
 
 .live{
@@ -37,4 +38,8 @@ svg{
 
 .coming-in-v2{
     text-decoration: line-through !important;
+}
+.dark {
+        background-color: #32373f;
+        color: azure;
 }

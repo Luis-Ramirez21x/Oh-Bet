@@ -1,13 +1,14 @@
 import axios from "axios";
-import { useEffect,useState } from "react";
+import { useContext, useEffect,useState } from "react";
 import ActiveBetDiv from './activeBetDiv'
 import './activeBets.css'
 import GenActiveBetDiv from "./genActiveBetDiv";
-
+import {ThemeContext} from '../../../util/themeContext/themeContext'
 
 function ActiveBets({userId}){
     const [activeBets, setBets] = useState({allBets: null, userBets: null})
     const [loading, setLoading] = useState(true);
+    const {darkMode} = useContext(ThemeContext);
 
 
     useEffect(()=>{
@@ -41,7 +42,7 @@ function ActiveBets({userId}){
                     return <ActiveBetDiv key={bet._id} betData={bet} userId={userId}/>
                 })}
                 <h2>All Live Bets</h2>
-                <div className="all-bets-container">
+                <div className="all-bets-container"  id={darkMode ? "dark" : ''}>
                     {activeBets.allBets.map((bet) =>{
                         return <GenActiveBetDiv key={bet._id} betData ={bet} />
                     })}

@@ -181,3 +181,21 @@
 #dark .betCard .btn-warning{
     border-color: #1B2F38;
 }
+#dark .counter-bet-form button{
+    border:#1B2F38;
+    color: #1B2F38;
+}
+
+#dark .counter-bet-form button svg{
+    
+    color: #1B2F38;
+}
+
+#dark .darkCrud{
+    border:#1B2F38;
+    color: #1B2F38;
+}
+
+#dark .darkCrud svg{
+    color: #1B2F38;
+}

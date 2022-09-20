@@ -3,6 +3,21 @@
     margin: auto;
 }
 
+.editreqbtn{
+    
+    background-color: #ffc107 !important;
+}
+
+#dark .editreqbtn{
+    border:1px solid #ffc107 !important;
+    background-color: #20242c !important;
+
+}
+
+#dark .editreqbtn svg{
+    color: #ffc107 !important;
+}
+
 #dark .bi-arrow-up-left-square{
     color:azure
 }

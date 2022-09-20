@@ -23,7 +23,7 @@ function Navv(){
     return (
         <>
         {[false].map((expand) => (
-        <Navbar key={expand} variant='dark' expand={expand}>
+        <Navbar key={expand} variant='dark' expand={expand} >
           <Container fluid>
           <a href={token? '/home': '/login'}>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -41,12 +41,12 @@ function Navv(){
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
             >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+              <Offcanvas.Header closeButton className={darkMode ? "dark" : ''}>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`} >
                   Oh Bet
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body>
+              <Offcanvas.Body className={darkMode ? "dark" : ''}>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="#action1" className='coming-in-v2'>My Profile</Nav.Link>
                   <Nav.Link href="#action2" className=''>Dark Mode {' '}

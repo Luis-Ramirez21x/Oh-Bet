@@ -51,6 +51,7 @@ function MyRecord({userId}){
                 </div>
                 
                 <div>
+                    <i><p style={{textAlign: "center", marginLeft:"30px", marginBottom:'1px'}}>W/L Ratio</p></i>
                     <DoughtNutChart recordData={data.record}/>
                 </div>
             

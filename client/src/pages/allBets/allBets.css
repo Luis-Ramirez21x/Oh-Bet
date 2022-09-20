@@ -13,6 +13,14 @@
     
 }
 
+.accordion svg{
+    color: #303641;
+}
+
+#dark .accordion svg {
+    color: azure;
+}
+
 #dark .accordion{
     --bs-accordion-bg: #32373f;
     border-color: lightgrey;

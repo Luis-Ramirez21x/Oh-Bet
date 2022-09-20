@@ -17,10 +17,14 @@
     flex-direction: row;
     justify-content: space-between;
     
-    border:1px solid grey;
+    border:1px solid #FC287F;
     margin-bottom: 10px;
     border-radius: 10px;
     padding:5px;
+}
+
+.all-bets-indiv svg{
+    color:#1B2F38
 }
 
 .all-bets-header{
@@ -62,5 +66,12 @@
     margin: auto;
 }
 
+#dark .all-bets-indiv svg{
+    color: azure;
+}
+
+.names{
+    color: #FC287F !important;
+}
 
 

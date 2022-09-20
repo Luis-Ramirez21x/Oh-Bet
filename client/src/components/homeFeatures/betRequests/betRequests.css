@@ -5,10 +5,23 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.betRequest svg{
+    margin:auto;
+    
+}
+.betReq-logo-name svg{
+    color: #20242c;
+}
+
+#dark .betReq-logo-name svg{
+    color: azure;
 }
 
 .betRequest a{
-    margin: auto;
+   
     width: fit-content;
 }
 .betReq-logo-name{
@@ -64,3 +77,43 @@
     width:fit-content;
 }
 
+.betRequest-rejected{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+}
+
+.deletebtn{
+    background-color: #dc3545 !important;
+}
+
+#dark .deletebtn{
+    border: 1px solid #dc3545 !important;
+    background-color: #20242c !important;
+}
+
+#dark .deletebtn svg{
+    color: #dc3545 !important;
+}
+
+.infobtn{
+    background-color: #0dcaf0 !important;
+}
+
+#dark .infobtn{
+    border: 1px solid #0dcaf0 !important;
+    background-color: #20242c !important;
+}
+
+#dark .infobtn svg{
+    color: #0dcaf0 !important;
+}
+
+#dark .notif-primary button{
+    border-color: #20242c;
+    
+}
+
+#dark .notif-primary button svg{
+    color: #20242c;
+}

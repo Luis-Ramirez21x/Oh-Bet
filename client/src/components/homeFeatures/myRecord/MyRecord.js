@@ -16,7 +16,7 @@ function MyRecord({userId}){
     
     useEffect(() =>{
 
-        axios.post('http://localhost:3001/api/bets/getRecord',{
+        axios.post(process.env.REACT_APP_API_URL + 'bets/getRecord',{
             "userId" : userId
         })
         .then( res => setData(res.data))

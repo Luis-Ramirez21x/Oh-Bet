@@ -14,12 +14,12 @@ function BetRequests({userId}){
     useEffect(()=>{
 
         const getBetData = async () =>{
-            const activeBets = await axios.post('http://localhost:3001/api/bets/pendingBets',
+            const activeBets = await axios.post(process.env.REACT_APP_API_URL + 'bets/pendingBets',
             {
                 "userId": userId
             })
 
-            const rejectedBets = await axios.post('http://localhost:3001/api/bets/rejectedBets',
+            const rejectedBets = await axios.post(process.env.REACT_APP_API_URL + 'bets/rejectedBets',
             {
                 "userId": userId
             })

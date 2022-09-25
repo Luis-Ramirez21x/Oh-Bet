@@ -16,9 +16,9 @@ function AllBets(){
 
     useEffect(()=>{
         const fetchData = async () =>{
-            const tossUpRes = await axios.get('http://localhost:3001/api/bets/tossUpBets')
-            const activeRes = await axios.get('http://localhost:3001/api/bets/activeBets');
-            const completedRes = await axios.get('http://localhost:3001/api/bets/completedBets')
+            const tossUpRes = await axios.get(process.env.REACT_APP_API_URL + 'bets/tossUpBets')
+            const activeRes = await axios.get(process.env.REACT_APP_API_URL + 'bets/activeBets');
+            const completedRes = await axios.get(process.env.REACT_APP_API_URL + 'bets/completedBets')
             setData({tossUp: tossUpRes.data, active: activeRes.data, completed: completedRes.data});
             setLoading(false);
         }

@@ -25,7 +25,7 @@ function BetCRUD({betData}){
         
         try{
 
-            let data = await axios.post('http://localhost:3001/api/bets/acceptBet',{
+            let data = await axios.post(process.env.REACT_APP_API_URL + 'bets/acceptBet',{
                 "_id": betData._id,
 	            "sender" : betData.sender._id,
 	            "receiver": betData.receiver._id
@@ -54,7 +54,7 @@ function BetCRUD({betData}){
 
         try{
 
-            let data = await axios.put('http://localhost:3001/api/bets',{
+            let data = await axios.put(process.env.REACT_APP_API_URL + 'bets',{
                 ...betData, 
                 condition:formData.condition,
                 reward:formData.reward,
@@ -74,7 +74,7 @@ function BetCRUD({betData}){
         event.preventDefault();
         try{
 
-            let data = await axios.put('http://localhost:3001/api/bets',{
+            let data = await axios.put(process.env.REACT_APP_API_URL + 'bets',{
                 ...betData, 
                 approved: null, 
                 sender: betData.sender._id, 

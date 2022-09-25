@@ -22,7 +22,7 @@ function CreateBet(){
 
     //logic
     useEffect(() =>{
-        axios.post('http://localhost:3001/api/users/getUsersExcludeCurrent',{'userId': userId})
+        axios.post(process.env.REACT_APP_API_URL + 'users/getUsersExcludeCurrent',{'userId': userId})
         .then(res => setUsers(res.data))
         .catch(error => console.log(error))
         .finally(() => setLoading(false))
@@ -52,7 +52,7 @@ function CreateBet(){
         
         try {
 
-            let {data} = await axios.post('http://localhost:3001/api/bets',{
+            let {data} = await axios.post(process.env.REACT_APP_API_URL + 'bets',{
                 "sender": profile.data._id,
                 "receiver": receiver._id,
                 "approved": false,

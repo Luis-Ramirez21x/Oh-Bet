@@ -8,7 +8,7 @@ function SentRequests({userId}){
 
     useEffect(()=>{
 
-        axios.post('http://localhost:3001/api/bets/sentRequests',
+        axios.post(process.env.REACT_APP_API_URL + 'bets/sentRequests',
         {
             "userId": userId
         })

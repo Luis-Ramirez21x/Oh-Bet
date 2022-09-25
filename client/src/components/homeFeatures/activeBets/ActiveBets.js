@@ -13,8 +13,8 @@ function ActiveBets({userId}){
 
     useEffect(()=>{
         const fetchData = async () =>{
-            const activeBets = await axios.post('http://localhost:3001/api/bets/activeBetsExcludeUser',{"userId": userId });
-            const userBets = await  axios.post('http://localhost:3001/api/bets/userActiveBets',{"userId": userId })
+            const activeBets = await axios.post(process.env.REACT_APP_API_URL + 'bets/activeBetsExcludeUser',{"userId": userId });
+            const userBets = await  axios.post(process.env.REACT_APP_API_URL + 'bets/userActiveBets',{"userId": userId })
             
             setBets({allBets: activeBets.data, userBets:userBets.data});
             setLoading(false);

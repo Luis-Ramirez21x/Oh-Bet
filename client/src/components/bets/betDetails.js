@@ -59,7 +59,7 @@ function BetDetails({betData}){
         event.preventDefault();
 
         try{
-            let data = await axios.put('http://localhost:3001/api/bets',{
+            let data = await axios.put(process.env.REACT_APP_API_URL + 'bets',{
                 ...betData, 
                 condition:formData.terms,
                 reward:formData.prize, 

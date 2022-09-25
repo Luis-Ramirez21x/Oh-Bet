@@ -15,7 +15,7 @@ function Footer(){
     
     useEffect(()=>{
         if(userId){
-        axios.post('http://localhost:3001/api/bets/unpaidBetCount',{
+        axios.post(process.env.REACT_APP_API_URL + 'bets/unpaidBetCount',{
             "userId" : userId
         })
         .then((betCnt) => setUnpaidCnt(betCnt.data))

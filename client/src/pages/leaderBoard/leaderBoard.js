@@ -13,7 +13,7 @@ function LeaderBoard(){
 
     useEffect(() =>{
 
-        axios.get('http://localhost:3001/api/users/userRankings')
+        axios.get(process.env.REACT_APP_API_URL + 'users/userRankings')
                 .then((rankings) => setRankings(rankings.data))
                 .catch(error => console.log(error))
                 .finally(() => setLoading(false))

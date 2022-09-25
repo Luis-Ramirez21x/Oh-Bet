@@ -8,7 +8,7 @@ function BetReqDiv({betData}){
           
         try{
             
-            let data = await axios.post('http://localhost:3001/api/bets/deleteBet',{
+            let data = await axios.post(process.env.REACT_APP_API_URL + 'bets/deleteBet',{
                 "betId": betData._id
 
         })

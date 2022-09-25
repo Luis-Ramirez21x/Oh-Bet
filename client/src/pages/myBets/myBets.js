@@ -13,7 +13,7 @@ function MyBets(){
 
     useEffect(() => {
         
-        axios.post('http://localhost:3001/api/bets/getBetHistory',{
+        axios.post(process.env.REACT_APP_API_URL + 'bets/getBetHistory',{
             "userId" : userId
         })
         .then((betData) => setBets(betData.data))

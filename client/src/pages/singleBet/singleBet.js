@@ -16,7 +16,7 @@ function SingleBet(){
 
     useEffect(() =>{
 
-        axios.post('http://localhost:3001/api/bets/singleBet',{
+        axios.post(process.env.REACT_APP_API_URL + 'bets/singleBet',{
             "betId" : betId
         })
         .then( res => setBetData(res.data))

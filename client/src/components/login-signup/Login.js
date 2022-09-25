@@ -30,7 +30,7 @@ function Login(){
    
         try {
 
-        let {data} = await axios.post('/api/users/login',
+        let {data} = await axios.post(process.env.REACT_APP_API_URL + 'users/login',
         {
             "username": userFormData.username,
             "password": userFormData.password

@@ -33,7 +33,7 @@ const handleInputChange = (event) => {
    }
 
    try {
-    let {data} = await axios.post('http://localhost:3001/api/users',
+    let {data} = await axios.post('/api/users',
         {   
             "name": userFormData.name,
             "username": userFormData.username,

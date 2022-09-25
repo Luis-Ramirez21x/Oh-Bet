@@ -30,7 +30,7 @@ function Login(){
    
         try {
 
-        let {data} = await axios.post('http://localhost:3001/api/users/login',
+        let {data} = await axios.post('/api/users/login',
         {
             "username": userFormData.username,
             "password": userFormData.password

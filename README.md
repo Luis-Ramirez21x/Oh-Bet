@@ -3,6 +3,9 @@
 ## About
 #### This app was made when I noticed our friend group needed an app to place bets and keep track of the bets/winners/losers without just relying on word of mouth! In short this app allows you to: 
 
+View App here: 
+http://44.202.0.40/
+
 - create an account
 - send bets and receive bets from that account 
 - reject/edit those bets in certain cases 
